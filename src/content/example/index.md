@@ -7,6 +7,6 @@ publishDate: 2025-05-01
 # tags:
 ---
 
-This is a example.
+This is an example.
 
 ![](./astro.webp)
