@@ -1,0 +1,30 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { themeConfig } from "@config";
+import { getCategoryUrl } from "@scripts/url-utils";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+const categories = [
+  ...new Set(posts.map((post) => post.data.categories || []).flat()),
+];
+---
+
+<Layout title={"分类" + " | " + themeConfig.site.title}>
+  <main class="flex flex-wrap gap-4">
+    {
+      categories.map((category) => {
+        const filteredPosts = posts.filter((post) =>
+          post.data.categories?.includes(category),
+        );
+        return (
+          <a class="card-small" href={getCategoryUrl(category)}>
+            <span class="icon-[mdi--tag-outline] iconify-inline" />
+            {category}
+            <span class="text-neutral text-sm">{filteredPosts.length}</span>
+          </a>
+        );
+      })
+    }
+  </main>
+</Layout>

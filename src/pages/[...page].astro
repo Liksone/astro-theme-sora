@@ -1,0 +1,88 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { Image } from "astro:assets";
+import { themeConfig } from "@config";
+import { getSortedCollection } from "@scripts/content-utils";
+import { getImportImage } from "@scripts/image-utils";
+import PostList from "@components/PostList.astro";
+import type { GetStaticPaths } from "astro";
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const allPosts = await getSortedCollection("blog");
+  return paginate(allPosts, { pageSize: 10 });
+}) satisfies GetStaticPaths;
+const { page } = Astro.props;
+const posts = page.data;
+
+const iconMap: Record<string, string> = {
+  BiliBili: "icon-[mingcute--bilibili-line]",
+  Email: "icon-[material-symbols--mail-outline-rounded]",
+  Facebook: "icon-[mingcute--facebook-line]",
+  GitHub: "icon-[mingcute--github-line]",
+  Instagram: "icon-[mdi--instagram]",
+  QQ: "icon-[mingcute--qq-line]",
+  Telegram: "icon-[ri--telegram-line]",
+  "Twitter/X": "icon-[si--twitter-line]",
+  YouTube: "icon-[mingcute--youtube-line]",
+  微博: "icon-[icon-park-outline--weibo]",
+  小红书: "icon-[simple-icons--xiaohongshu]",
+  知乎: "icon-[ri--zhihu-fill]",
+};
+---
+
+<Layout header={false}>
+  <header>
+    <div
+      class="mt-20 mb-20 flex flex-col items-center justify-center gap-8 sm:flex-row sm:gap-14"
+    >
+      <Image
+        src={getImportImage(themeConfig.global.avatar)}
+        class="h-40 w-auto rounded-full filter-none"
+        alt="头像"
+      />
+
+      <div class="flex flex-col items-center gap-5 font-mono">
+        <div class="text-4xl">{themeConfig.site.title}</div>
+
+        {/* 社交媒体 */}
+        <div class="text-center">
+          {
+            themeConfig.index.social
+              .filter((item) => item.enable)
+              .map((item) => (
+                <a href={item.url} target="_blank" rel="noopener">
+                  <span class={`iconify-large ${iconMap[item.name]}`} />
+                </a>
+              ))
+          }
+
+          {
+            themeConfig.global.rss && (
+              <a href="/rss.xml">
+                <span class="iconify-large icon-[heroicons--rss]" />
+              </a>
+            )
+          }
+        </div>
+
+        {/* 导航栏 */}
+        <nav class="flex justify-center gap-3">
+          {
+            themeConfig.nav.map((item) => (
+              <a class="card-small p-2 " href={item.url}>
+                {item.name}
+              </a>
+            ))
+          }
+          <a class="card-small p-2" href="javascript:SearchWidget.open()">
+            <span class="iconify icon-[fa-solid--search]"></span>
+          </a>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <PostList posts={posts} page={page} />
+
+  <style></style>
+</Layout>

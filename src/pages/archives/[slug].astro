@@ -1,0 +1,447 @@
+---
+import { getCollection, render } from "astro:content";
+import type { GetStaticPaths } from "astro";
+import Layout from "@layouts/Layout.astro";
+import { themeConfig } from "@config";
+import dayjs from "dayjs";
+import { getCategoryUrl, getTagUrl } from "@scripts/url-utils";
+import ToTop from "@components/ToTop.astro";
+import Sponsor from "@components/Sponsor.astro";
+
+export const getStaticPaths = (async () => {
+  const posts = await getCollection("blog");
+  return posts.map((post) => {
+    return {
+      params: { slug: post.data.slug || post.id },
+      props: { post },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { post } = Astro.props;
+const { Content, headings, remarkPluginFrontmatter } = await render(post);
+
+// 动态导入图片
+// const images = import.meta.glob<{ default: ImageMetadata }>("@images/*");
+//
+// const alipay = themeConfig.sponsor.alipay.enable
+//   ? await images[path.join("/src/images", themeConfig.sponsor.alipay.image)]()
+//   : null;
+// const wechat = themeConfig.sponsor.wechat.enable
+//   ? await images[path.join("/src/images", themeConfig.sponsor.wechat.image)]()
+//   : undefined;
+
+// 时效性提示
+function generateTimeTips() {
+  const date = post.data.updateDate ?? dayjs(post.data.publishDate);
+
+  const prefix =
+    typeof post.data.updateDate === "undefined" ? "发布于 " : "更新于 ";
+
+  const randomWords = [
+    "时过境迁",
+    "沧海桑田",
+    "天翻地覆",
+    "水流花落",
+    "斗转星移",
+    "物是人非",
+    "时移世易",
+    "物换星移",
+    "春去秋来",
+  ];
+  const randomIndex = Math.floor(Math.random() * randomWords.length);
+
+  const text =
+    "本文" +
+    prefix +
+    dayjs().diff(date, "day") +
+    " 天前，其中的信息可能已经" +
+    randomWords[randomIndex];
+
+  return text;
+}
+---
+
+<Layout title={post.data.title + " | " + themeConfig.site.title}>
+  <article>
+    {
+      /* 封面图 */
+      /* <img
+        th:if="${!#strings.isEmpty(post.spec.cover)}"
+        th:src="${post.spec.cover}"
+        class="shadow-shadow mx-auto mb-8 h-[10rem] w-full rounded-lg object-contain"
+	/> */
+    }
+
+    <!-- 标题 -->
+    <div class="text-center font-serif text-[2rem] font-bold">
+      {post.data.title}
+    </div>
+
+    {/* 文章元信息 */}
+    <div class="mt-4 flex flex-wrap justify-center gap-3 font-mono text-sm">
+      <!-- 发布时间 -->
+      <span>
+        <span class="icon-[bx--calendar-alt] iconify-inline"></span>
+        <time>
+          {post.data.publishDate}
+        </time>
+      </span>
+      {
+        /* 更新时间 */
+        post.data.updateDate && (
+          <span>
+            <span class="icon-[bx--calendar-check] iconify-inline" />
+            <time>{post.data.updateDate}</time>
+          </span>
+        )
+      }
+      {
+        /* 分类 */
+        post.data.categories && (
+          <span>
+            <span class="icon-[material-symbols--folder-outline-rounded] iconify-inline" />
+            <span class="inline-flex gap-2">
+              {post.data.categories.map((category) => (
+                <a href={getCategoryUrl(category)}>{category}</a>
+              ))}
+            </span>
+          </span>
+        )
+      }
+      {
+        /* 标签 */
+        post.data.tags && (
+          <span>
+            <span class="icon-[mdi--tag-outline] iconify-inline" />
+            <span class="inline-flex gap-2">
+              {post.data.tags.map((tag) => (
+                <a href={getTagUrl(tag)}>{tag}</a>
+              ))}
+            </span>
+          </span>
+        )
+      }
+      {/* 字数统计 */}
+      <span>
+        <span class="icon-[icon-park-outline--word] iconify-inline"></span>
+        <span>
+          {remarkPluginFrontmatter.words}
+        </span>
+      </span>
+      {/* 预计阅读时间 */}
+      <span>
+        <span class="icon-[mingcute--time-line] iconify-inline"></span>
+        <span>
+          {remarkPluginFrontmatter.readingTime}
+        </span>
+      </span>
+      {
+        /*
+      浏览量
+      <span>
+      <span class="icon-[uil--chart-line] iconify-inline"></span>
+      <span>
+      {post.data.visit}
+      </span>
+      </span>
+      */
+      }
+    </div>
+
+    <!-- 摘要 -->
+    <!-- <div class="card abstract my-4 text-sm"> -->
+    <!--   <span> -->
+    <!--     {post.status.excerpt} -->
+    <!--   </span> -->
+    <!-- </div> -->
+
+    <!-- 时效性提示 -->
+    <div class="card post-time-tips text-neutral my-4 text-sm">
+      {generateTimeTips()}
+    </div>
+
+    <section class="relative">
+      <div id="post-content">
+        <Content />
+      </div>
+
+      <!-- <hr class="my-8 border-t-4 text-black opacity-10" /> -->
+
+      {/* 版权许可协议 */}
+      <div class="card mt-14 px-6 py-4" id="license">
+        <div id="license-icon"></div>
+
+        <div>{post.data.title}</div>
+        <div class="license-item mt-1">
+          {decodeURI(Astro.url.toString())}
+        </div>
+
+        <div class="mt-3 gap-12 sm:flex">
+          <div>
+            <div class="license-item">作者</div>
+            <span>
+              {post.data.author}
+            </span>
+          </div>
+
+          <div>
+            <div class="license-item">发布于</div>
+            <time>
+              {post.data.publishDate}
+            </time>
+          </div>
+
+          {
+            post.data.updateDate && (
+              <div>
+                <div class="license-item">更新于</div>
+                <time>{post.data.updateDate}</time>
+              </div>
+            )
+          }
+
+          <div>
+            <div class="license-item">许可</div>
+            <div>
+              <a href={themeConfig.post.copyright.url}>
+                <span class="icon-[cib--creative-commons] iconify-inline"
+                ></span>
+                {
+                  themeConfig.post.copyright.CCLicense.BY && (
+                    <span class="icon-[cib--creative-commons-by] iconify-inline" />
+                  )
+                }
+                {
+                  themeConfig.post.copyright.CCLicense.NC && (
+                    <span class="icon-[cib--creative-commons-nc] iconify-inline" />
+                  )
+                }
+                {
+                  themeConfig.post.copyright.CCLicense.SA && (
+                    <span class="icon-[cib--creative-commons-sa] iconify-inline" />
+                  )
+                }
+                {
+                  themeConfig.post.copyright.CCLicense.ND && (
+                    <span class="icon-[cib--creative-commons-nd] iconify-inline" />
+                  )
+                }
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* 末尾分类 & 标签 */}
+        {
+          (post.data.categories || post.data.tags) && (
+            <div class="mt-4 flex justify-between text-sm">
+              <span class="flex gap-2">
+                {post.data.categories &&
+                  post.data.categories.map((category) => (
+                    <a class="card-small" href={getCategoryUrl(category)}>
+                      <span class="icon-[material-symbols--folder-outline-rounded] iconify-inline" />
+                      <span>{category}</span>
+                    </a>
+                  ))}
+              </span>
+
+              <span class="flex gap-2">
+                {post.data.tags &&
+                  post.data.tags.map((tag) => (
+                    <a class="card-small" href={getTagUrl(tag)}>
+                      <span class="icon-[mdi--tag-outline] iconify-inline" />
+                      <span>{tag}</span>
+                    </a>
+                  ))}
+              </span>
+            </div>
+          )
+        }
+      </div>
+
+      <!-- 赞赏 -->
+      <div class="relative">
+        <div class="my-8 flex justify-center gap-4 text-sm">
+          <!-- <button -->
+          <!--   class="card-small cursor-pointer" -->
+          <!--   id="upvote-button" -->
+          <!--   th:data-post-id="${post.metadata.name}" -->
+          <!-- > -->
+          <!--   <span class="iconify-inline icon-[flowbite--thumbs-up-solid]" -->
+          <!--   ></span> -->
+          <!--   赞 -->
+          <!--   <span id="upvote-number" th:text="${post.stats?.upvote ?: 0}" -->
+          <!--   ></span> -->
+          <!-- </button> -->
+          {themeConfig.sponsor.enable && <Sponsor />}
+        </div>
+      </div>
+
+      {/* 目录 */}
+      <aside
+        class="absolute top-0 right-[-160px] hidden h-full w-[120px] md:block"
+      >
+        <!-- <div class="mt-[1rem]"># 目录</div> -->
+        <nav
+          class="sticky top-10 pl-4 font-serif text-[0.8rem] active:border-l-primary"
+          id="toc"
+        >
+          {
+            headings
+              .filter((heading) => heading.depth < 5)
+              .map((heading) => (
+                <div class={`toc-item-level-${heading.depth}`}>
+                  <a href={`#${heading.slug}`}>{heading.text}</a>
+                </div>
+              ))
+          }
+        </nav>
+      </aside>
+    </section>
+
+    <ToTop />
+
+    <script>
+      function scrollHighlightTOC() {
+        let activeId = null; // 记录当前激活的标题 ID
+
+        // IntersectionObserver 监听哪些标题进入视口
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              const id = entry.target.getAttribute("id");
+              const link = document.querySelector(`#toc a[href="#${id}"]`);
+
+              if (entry.isIntersecting) {
+                // 如果一个标题进入视口，更新活跃标题
+                if (activeId !== id) {
+                  if (activeId) {
+                    // 移除前一个标题的 active 类
+                    const activeLink = document.querySelector(
+                      `#toc a[href="#${activeId}"]`,
+                    );
+                    activeLink.parentElement.classList.remove("active");
+                  }
+                  // 添加当前标题的 active 类
+                  link.parentElement.classList.add("active");
+                  activeId = id; // 更新活跃标题
+                }
+              }
+
+              // 最简单的方案
+              // if (entry.isIntersecting) {
+              //   link.parentElement.classList.add("active");
+              // } else {
+              //   link.parentElement.classList.remove("active");
+              // }
+            });
+          },
+          {
+            // rootMargin: "-40% 0px -40% 0px",
+          },
+        );
+
+        // 开始监听标题
+        const headings = document.querySelectorAll(
+          "#post-content h1, h2, h3, h4",
+        );
+        headings.forEach((heading) => observer.observe(heading));
+      }
+
+      // TODO 逻辑上有点问题，应该与 scrollHighlightTOC 配合
+      function clickHighlightTOC() {
+        document.querySelectorAll("#toc a").forEach((anchor) => {
+          anchor.addEventListener("click", function () {
+            document.querySelectorAll(`#toc .active`).forEach((element) => {
+              element.classList.remove("active");
+            });
+
+            anchor.parentElement.classList.add("active");
+          });
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        scrollHighlightTOC();
+        clickHighlightTOC();
+      });
+    </script>
+
+    <style>
+      @reference "@styles/main.css";
+
+      /* 时效性提示 */
+      .post-time-tips {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230000001a' d='M12 21q-1.875 0-3.512-.712t-2.85-1.925t-1.925-2.85T3 12t.713-3.512t1.924-2.85t2.85-1.925T12 3q2.05 0 3.888.875T19 6.35V5q0-.425.288-.712T20 4t.713.288T21 5v4q0 .425-.288.713T20 10h-4q-.425 0-.712-.288T15 9t.288-.712T16 8h1.75q-1.025-1.4-2.525-2.2T12 5Q9.075 5 7.038 7.038T5 12t2.038 4.963T12 19q2.375 0 4.25-1.425t2.475-3.675q.125-.4.45-.6t.725-.15q.425.05.675.362t.15.688q-.725 2.975-3.15 4.888T12 21m1-9.4l2.5 2.5q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-2.8-2.8q-.15-.15-.225-.337T11 11.975V8q0-.425.288-.712T12 7t.713.288T13 8z'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right;
+      }
+
+      /* License */
+      #license {
+        position: relative;
+        overflow: hidden;
+        z-index: 1;
+      }
+
+      #license-icon {
+        position: absolute;
+        top: 50%;
+        right: -2rem;
+        transform: translateY(-50%);
+
+        /* width: 100%; */
+        height: 12rem;
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1'%3E%3Cpath d='M.5 7a6.5 6.5 0 1 0 13 0a6.5 6.5 0 1 0-13 0'/%3E%3Cpath d='M6.046 5.6a1.05 1.05 0 0 0-.99-.7h-.7c-.58 0-1.05.47-1.05 1.05v2.1c0 .58.47 1.05 1.05 1.05h.7c.457 0 .846-.292.99-.7m4.648-2.8a1.05 1.05 0 0 0-.99-.7h-.7c-.58 0-1.05.47-1.05 1.05v2.1c0 .58.47 1.05 1.05 1.05h.7c.457 0 .846-.292.99-.7'/%3E%3C/g%3E%3C/svg%3E");
+        opacity: 0.1;
+        z-index: -1;
+      }
+
+      #license .license-item {
+        @apply text-neutral text-sm;
+      }
+
+      /* 目录 */
+      #toc a {
+        /* color: #666; */
+        color: black;
+        opacity: 0.6;
+        transition: all 200ms ease-in-out;
+        /* This small transition makes setting of the active state smooth */
+      }
+      #toc a:hover {
+        /* color: #333; */
+        opacity: 0.9;
+      }
+      #toc .active > a {
+        /* color: black; */
+        opacity: 1;
+        font-weight: 600;
+      }
+      #toc .active {
+        /* color: black; */
+        border-left-color: var(--color-primary);
+        border-start-end-radius: 0.5rem;
+        transition: all 200ms ease-in-out;
+      }
+
+      #toc > div {
+        padding: 0.2rem 0;
+        border-left: 3px solid #efefef;
+      }
+      #toc .toc-item-level-1 {
+        padding-left: 10px;
+      }
+      #toc .toc-item-level-2 {
+        padding-left: calc(10px + 0.6rem);
+      }
+      #toc .toc-item-level-3 {
+        padding-left: calc(10px + 1.2rem);
+      }
+      #toc .toc-item-level-4 {
+        padding-left: calc(10px + 1.8rem);
+      }
+    </style>
+  </article>
+</Layout>

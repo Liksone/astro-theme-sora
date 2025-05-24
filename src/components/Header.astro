@@ -1,0 +1,28 @@
+---
+import { themeConfig } from "@config";
+---
+
+<header>
+  <nav
+    class="mb-[32px] flex border-b border-[#ddd] py-[14px] font-mono bg-white"
+    id="navigation"
+  >
+    <a href="/">{themeConfig.site.title}</a>
+    <div class="ml-auto flex flex-row gap-5">
+      {themeConfig.nav.map((item) => <a href={item.url}>{item.name}</a>)}
+      <span> | </span>
+      <a href="javascript:SearchWidget.open()">
+        <span class="icon-[fa-solid--search] iconify-inline"></span>
+      </a>
+      {themeConfig.global.i18n && <a href="/en">EN</a>}
+    </div>
+  </nav>
+</header>
+
+<style>
+  #navigation a {
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+  }
+</style>

@@ -1,0 +1,32 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { themeConfig } from "@config";
+import type { GetStaticPaths } from "astro";
+import PostList from "@components/PostList.astro";
+import { getSortedCollection } from "@scripts/content-utils";
+
+export const getStaticPaths = (async () => {
+  const posts = await getSortedCollection("blog");
+  const tags = [...new Set(posts.map((post) => post.data.tags || []).flat())];
+
+  return tags.map((tag) => {
+    const filteredPosts = posts.filter((post) => post.data.tags?.includes(tag));
+    return {
+      params: { tag },
+      props: { posts: filteredPosts },
+    };
+  });
+}) satisfies GetStaticPaths;
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<Layout title={tag + " | " + themeConfig.site.title}>
+  <div class="text-center font-serif text-2xl font-bold mb-8">
+    <span class="icon-[mdi--tag-outline] iconify-inline"></span>
+    <span>{tag}</span>
+  </div>
+
+  <PostList posts={posts} />
+</Layout>

@@ -1,0 +1,28 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { themeConfig } from "@config";
+import { getTagUrl } from "@scripts/url-utils";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("blog");
+const tags = [...new Set(posts.map((post) => post.data.tags || []).flat())];
+---
+
+<Layout title={"标签" + " | " + themeConfig.site.title}>
+  <main class="flex flex-wrap gap-4">
+    {
+      tags.map((tag) => {
+        const filteredPosts = posts.filter((post) =>
+          post.data.tags?.includes(tag),
+        );
+        return (
+          <a class="card-small" href={getTagUrl(tag)}>
+            <span class="icon-[mdi--tag-outline] iconify-inline" />
+            {tag}
+            <span class="text-neutral text-sm">{filteredPosts.length}</span>
+          </a>
+        );
+      })
+    }
+  </main>
+</Layout>

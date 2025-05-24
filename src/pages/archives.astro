@@ -1,0 +1,55 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { getSortedCollection } from "@scripts/content-utils";
+import dayjs from "dayjs";
+import { themeConfig } from "src/theme.config";
+
+const posts = await getSortedCollection("blog");
+let groupedPosts: { [year: number]: typeof posts } = {};
+posts.forEach((post) => {
+  const year = dayjs(post.data.publishDate).year();
+
+  if (!groupedPosts[year]) {
+    groupedPosts[year] = [];
+  }
+
+  groupedPosts[year].push(post);
+});
+const years = Object.keys(groupedPosts)
+  .map(Number)
+  .toSorted((a, b) => b - a);
+---
+
+<Layout title={"归档" + " | " + themeConfig.site.title}>
+  <main>
+    <div class="mx-auto max-w-[780px]">
+      {
+        years.map((year) => (
+          <div>
+            <h2>{year}</h2>
+            {groupedPosts[year].map((post) => (
+              <div class="mb-2 ml-4">
+                <time class="mr-8 font-mono text-neutral-500">
+                  {post.data.publishDate}
+                </time>
+                <span>
+                  <a
+                    href={`/archives/${post.id}`}
+                    class="font-serif font-semibold text-black"
+                  >
+                    {post.data.title}
+                  </a>
+                </span>
+              </div>
+            ))}
+          </div>
+        ))
+      }
+
+      <!-- <div class="mb-3"></div> -->
+    </div>
+
+    <!-- <th:block th:replace="~{module/pagination(component=${archives})}"> -->
+    <!-- </th:block> -->
+  </main></Layout
+>

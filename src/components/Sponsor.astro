@@ -1,0 +1,86 @@
+---
+import { themeConfig } from "@config";
+import { Image } from "astro:assets";
+import { getImportImage } from "@scripts/image-utils";
+---
+
+<button class="card-small relative cursor-pointer" id="sponsor-button">
+  <span class="iconify-inline icon-[ph--coffee-fill]"></span>
+  <span>赏</span>
+</button>
+
+<div
+  class="card absolute bottom-full left-1/2 z-10 mb-4 hidden translate-x-[-50%] bg-white text-sm"
+  id="sponsor-page"
+>
+  <div class="flex justify-center gap-8">
+    {
+      themeConfig.sponsor.alipay.enable && (
+        <div>
+          <Image
+            class="w-32"
+            alt="支付宝"
+            src={getImportImage(themeConfig.sponsor.alipay.image)}
+          />
+          <div class="mt-1 text-center">
+            <span class="icon-[ant-design--alipay-outlined] iconify-inline" />
+            支付宝
+          </div>
+        </div>
+      )
+    }
+    {
+      themeConfig.sponsor.wechat.enable && (
+        <div>
+          <Image
+            class="w-32"
+            alt="微信"
+            src={getImportImage(themeConfig.sponsor.wechat.image)}
+          />
+          <div class="mt-1 text-center">
+            <span class="icon-[mingcute--wechat-pay-line] iconify-inline" />
+            微信
+          </div>
+        </div>
+      )
+    }
+  </div>
+
+  {
+    themeConfig.sponsor.list && (
+      <a
+        class="card-small hover:bg-primary mt-2 block text-center hover:bg-[url(/sponsorList.gif)] hover:text-white"
+        href="/about"
+      >
+        <div class="font-bold">赞助名单</div>
+        <div class="mt-1 text-xs">感谢你的支持</div>
+      </a>
+    )
+  }
+</div>
+
+<script>
+  function sponsor() {
+    const button = document.getElementById("sponsor-button");
+    const page = document.getElementById("sponsor-page");
+
+    button.addEventListener("click", function () {
+      const overlay = document.createElement("div");
+      overlay.className = "fixed top-0 left-0 w-full h-full z-9";
+      document.body.appendChild(overlay);
+
+      page.classList.remove("hidden");
+      button.classList.add("active");
+
+      overlay.addEventListener("click", function () {
+        document.body.removeChild(overlay);
+        page.classList.add("hidden");
+        button.classList.remove("active");
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    sponsor();
+  });
+</script>
