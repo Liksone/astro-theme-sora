@@ -23,6 +23,7 @@ const { title = themeConfig.site.title, header = true } = Astro.props;
     <meta name="generator" content={Astro.generator} />
 
     <title>{title}</title>
+
     <link
       rel="icon"
       type="image/png"
@@ -46,6 +47,8 @@ const { title = themeConfig.site.title, header = true } = Astro.props;
       href="/favicon/apple-touch-icon.png"
     />
     <link rel="manifest" href="/favicon/site.webmanifest" />
+    {/* Sitemap */}
+    <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Fonts -->
     <!-- HarmonyOS Sans SC -->

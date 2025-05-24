@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@astrojs/rss": "^4.0.11",
+    "@astrojs/sitemap": "^3.4.0",
     "@tailwindcss/vite": "^4.1.5",
     "astro": "^5.7.10",
     "mdast-util-to-string": "^4.0.0",

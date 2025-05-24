@@ -5,6 +5,8 @@ import icon from "astro-icon";
 import remarkWordsAndReadingTime from "./src/scripts/remark-words-reading-time.ts";
 import rehypeExternalLinks from "./src/scripts/rehype-external-links.ts";
 
+import sitemap from "@astrojs/sitemap";
+
 export default defineConfig({
   site: themeConfig.site.url,
 
@@ -12,7 +14,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [icon()],
+  integrations: [icon(), sitemap()],
 
   markdown: {
     remarkPlugins: [remarkWordsAndReadingTime],
