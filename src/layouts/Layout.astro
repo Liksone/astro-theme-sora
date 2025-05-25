@@ -79,6 +79,15 @@ const { title = themeConfig.site.title, header = true } = Astro.props;
       rel="stylesheet"
       href="https://fontsapi.zeoseven.com/442/bold-italic/result.css"
     />
+    {
+      themeConfig.tools.umami.enable && (
+        <script
+          defer
+          src={`${themeConfig.tools.umami.src}/script.js`}
+          data-website-id={themeConfig.tools.umami.websiteID}
+        />
+      )
+    }
   </head>
 
   <body>

@@ -177,43 +177,16 @@ export const themeConfig: ThemeConfig = {
   //     imageUploader: false, // true, false
   //   },
   // },
-  // seo: {
-  //   // @twitter ID
-  //   twitterID: "@radishzz_",
-  //   // site verification
-  //   verification: {
-  //     // google search console
-  //     // https://search.google.com/search-console
-  //     google: "AUCrz5F1e5qbnmKKDXl2Sf8u6y0kOpEO1wLs6HMMmlM",
-  //     // bing webmaster tools
-  //     // https://www.bing.com/webmasters
-  //     bing: "64708CD514011A7965C84DDE1D169F87",
-  //     // yandex webmaster
-  //     // https://webmaster.yandex.com
-  //     yandex: "",
-  //     // baidu search
-  //     // https://ziyuan.baidu.com
-  //     baidu: "",
-  //   },
-  //   // google analytics
-  //   // https://analytics.google.com
-  //   googleAnalyticsID: "",
-  //   // umami analytics
-  //   // https://cloud.umami.is
-  //   umamiAnalyticsID: "520af332-bfb7-4e7c-9386-5f273ee3d697",
-  //   // follow verification
-  //   // https://follow.is/
-  //   follow: {
-  //     // feed ID
-  //     feedID: "",
-  //     // user ID
-  //     userID: "",
-  //   },
-  //   // apiflash access key
-  //   // automatically generate website screenshots for open graph images
-  //   // get your access key at: https://apiflash.com/
-  //   apiflashKey: "",
-  // },
+  tools: {
+    // Umami
+    umami: {
+      enable: false,
+      src: "",
+      // 例如 https://cloud.umami.is
+      websiteID: "",
+      // 例如 520af332-bfb7-4e7c-9386-5f273ee3d697
+    },
+  },
 };
 
 interface ThemeConfig {
@@ -270,5 +243,12 @@ interface ThemeConfig {
       image: string;
     };
     list: boolean;
+  };
+  tools: {
+    umami: {
+      enable: boolean;
+      src: string;
+      websiteID: string;
+    };
   };
 }
