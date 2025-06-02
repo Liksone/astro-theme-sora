@@ -99,7 +99,7 @@
   --color-bg-dark: var(--color-neutral-150);
   /* darker */
   /* --color-bg2: var(--color-neutral-200); */
-  --color-shadow: rgba(0, 0, 0, 0.2);
+  --color-shadow: rgba(0, 0, 0, 0.1);
   --color-border-light: var(--color-neutral-150);
 
   --breakpoint-sm: 480px;
@@ -253,7 +253,8 @@
     padding: 2px 4px;
     border-radius: 6px;
     font-family: var(--font-mono);
-    background-color: var(--color-bg-dark);
+    background-color: var(--color-bg);
+    /* background-color: var(--color-bg-dark); */
   }
 
   pre {
