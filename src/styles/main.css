@@ -1,10 +1,6 @@
 @import "tailwindcss";
 @plugin "@iconify/tailwind4";
 
-:root {
-  --size-border-radius: 0.5rem;
-}
-
 @theme {
   --font-serif: "Noto Serif CJK", ui-serif, serif;
   /* 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji' */
@@ -107,6 +103,7 @@
   --color-border-light: var(--color-neutral-150);
 
   --breakpoint-sm: 480px;
+  --size-border-radius: 0.5rem;
 }
 
 /*基本样式*/
