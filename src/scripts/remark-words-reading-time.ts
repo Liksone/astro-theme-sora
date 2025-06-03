@@ -12,8 +12,8 @@ export default function remarkWordsAndReadingTime() {
 
     // 预计阅读时间
     // data.astro.frontmatter.readingTime = post.minutes;
-    const min = Math.round(post.words / 350);
-    const max = Math.round(post.words / 250);
+    const min = Math.ceil(post.words / 350);
+    const max = Math.ceil(post.words / 250);
     if (min == max) {
       data.astro.frontmatter.readingTime = `${max} min`;
     } else {
