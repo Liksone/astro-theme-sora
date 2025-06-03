@@ -1,9 +1,13 @@
 ---
 import { Image } from "astro:assets";
 import type { Page } from "astro";
+import type { CollectionEntry, CollectionKey } from "astro:content";
 import { generateDescription } from "@scripts/post-utils";
 
-const { posts, page } = Astro.props as { posts: any; page: Page };
+const { posts, page } = Astro.props as {
+  posts: CollectionEntry<CollectionKey>[];
+  page: Page;
+};
 ---
 
 <main class="mx-auto max-w-[768px]">
