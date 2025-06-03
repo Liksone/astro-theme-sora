@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import type { Page } from "astro";
+import { generateDescription } from "@scripts/post-utils";
 
 const { posts, page } = Astro.props as { posts: any; page: Page };
 ---
@@ -27,7 +28,9 @@ const { posts, page } = Astro.props as { posts: any; page: Page };
 
             {/* 摘要 */}
             <div class="text-neutral text-[0.9rem]">
-              {post.data.description}
+              {post.data.cover
+                ? generateDescription(post, 80)
+                : generateDescription(post, 150)}
             </div>
 
             {/* 元信息 */}
