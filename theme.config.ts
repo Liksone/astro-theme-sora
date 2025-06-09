@@ -1,31 +1,16 @@
 export const themeConfig: ThemeConfig = {
-  // 站点
   site: {
-    // 站点地址
     url: "https://blog.liks.space",
-    // 站点标题
     title: "Liks' Blog",
-    // 站长名，用于 meta 信息
     author: "Liks",
-    // 站点介绍，用于 meta 信息
     description: "Liks 的博客",
-    // 站点 Favicon
-    // 本地文件或网页链接
-    // recommended formats: svg, png or ico？
     favicon: "/icon/favicon.svg", // or https://example.com/favicon.svg
   },
-  // 基本设置
   global: {
-    // 头像
-    // 本地文件或网页链接
-    // recommended formats: svg, png or ico？
-    avatar: "avatar.jpg", // or https://example.com/favicon.svg
-    // RSS
+    avatar: "avatar.jpg",
     rss: true,
-    // 多语言支持
     i18n: true,
   },
-  // 导航栏
   nav: [
     {
       name: "归档",
@@ -44,31 +29,18 @@ export const themeConfig: ThemeConfig = {
       url: "/about",
     },
   ],
-  // 页脚
   footer: {
-    // 版权
     copyright: {
-      // 建站时间
-      // 例如 2024 - 2025，默认为今年
       time: "2024 - 2025",
-      // 版权所有者
-      // 默认为站点标题
       owner: "Liks",
     },
-    // 备案
     beian: {
-      // ICP 备案号，例如京ICP备12345678号
       // icp: "京 ICP 备 12345678 号",
-      // 公安备案号
       // police: "京公网安备 11010102000001 号",
-      // 公安备案链接
-      // 默认为 https://beian.mps.gov.cn
       // policeLink: "https://beian.mps.gov.cn/webcode=?",
     },
   },
-  // 首页
   index: {
-    // 社交媒体
     social: [
       {
         name: "BiliBili",
@@ -122,38 +94,27 @@ export const themeConfig: ThemeConfig = {
       },
     ],
   },
-  // 文章页
   post: {
-    // 版权许可
     copyright: {
-      // CC 许可
       CCLicense: {
         BY: true,
         NC: true,
         SA: true,
         ND: false,
       },
-      // 许可链接
       url: "https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans",
     },
   },
-  // 赞助
   sponsor: {
     enable: true,
-    // 支付宝二维码
     alipay: {
       enable: false,
-      // 本地文件或网页链接
       image: "",
-      // Relative to the /src/images/ directory
     },
-    // 微信二维码
     wechat: {
       enable: true,
-      // 本地文件或网页链接
       image: "wechatpay.png",
     },
-    // 赞助名单
     list: true,
   },
   // comment: {
@@ -178,13 +139,10 @@ export const themeConfig: ThemeConfig = {
   //   },
   // },
   tools: {
-    // Umami
     umami: {
       enable: false,
       src: "",
-      // 例如 https://cloud.umami.is
       websiteID: "",
-      // 例如 520af332-bfb7-4e7c-9386-5f273ee3d697
     },
   },
 };
