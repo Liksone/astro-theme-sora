@@ -205,8 +205,8 @@ interface ThemeConfig {
   nav: { name: string; url: string }[];
   footer: {
     copyright: {
-      time?: string;
-      owner?: string;
+      time: string;
+      owner: string;
     };
     beian: {
       icp?: string;

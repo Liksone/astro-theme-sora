@@ -2,12 +2,9 @@
 import { themeConfig } from "@config";
 import { Image } from "astro:assets";
 import policeIcon from "@images/police.png";
-import dayjs from "dayjs";
 
-const copyrightTime: string =
-  themeConfig.footer.copyright.time || dayjs().year().toString();
-const copyrightOwner: string =
-  themeConfig.footer.copyright.owner || themeConfig.site.title;
+const copyrightTime = themeConfig.footer.copyright.time; // || dayjs().year().toString();
+const copyrightOwner = themeConfig.footer.copyright.owner; // || themeConfig.site.title;
 ---
 
 <footer class="pt-20 pb-6">
@@ -45,8 +42,7 @@ const copyrightOwner: string =
               />
               <a
                 href={
-                  themeConfig.footer.beian.policeLink ||
-                  "https://beian.mps.gov.cn"
+                  themeConfig.footer.beian.policeLink // || "https://beian.mps.gov.cn"
                 }
                 target="_blank"
                 rel="noopener"
