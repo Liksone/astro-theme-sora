@@ -1,0 +1,22 @@
+name: 添加网站
+description: 在「谁在使用」中添加你的网站
+title: "添加网站"
+# labels:
+# - example supply
+body:
+  - type: input
+    # id: name
+    attributes:
+      label: 网站名称
+      # description: 请网站名 | Please supply the name of your site.
+      # placeholder: ex. Mereith's Blog
+    validations:
+      required: true
+  - type: input
+    # id: url
+    attributes:
+      label: 网站地址
+      # description: 请提供搭建的网站地址 | Please supply a website url.
+      # placeholder: ex. https://blog-demo.mereith.com
+    validations:
+      required: true
