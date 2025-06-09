@@ -69,6 +69,26 @@ global: {
 | avatar | 头像            | <ul><li>本地文件 "avatar.jpg"</li><li>网页链接 "https://example.com/favicon.svg"</li></ul> |
 | rss    | 启用 RSS        | true                                                                                       |
 | i18n   | 启用 多语言支持 | true                                                                                       |
+## 文章页
+
+```typescript
+post: {
+  copyright: {
+    CCLicense: {
+      BY: true,
+      NC: true,
+      SA: true,
+      ND: false,
+    },
+    url: "https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans",
+  },
+}
+```
+
+- `copyright` 版权许可
+
+  - `CCLicense` CC 许可
+  - `url` 许可网址
 # 许可
 
 [GNU General Public License v3.0](https://github.com/Liksone/astro-theme-sora/blob/main/LICENSE)
