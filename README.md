@@ -28,7 +28,7 @@
 
 2. 配置主题
 
-   修改配置文件 `src/theme.config.ts` 来自定义主题。
+   修改配置文件 `theme.config.ts` 来自定义主题。
 
 3. 编辑文章
 
@@ -40,6 +40,35 @@
 
    自行部署网站至服务器，或者参考 [Astro 文档](https://docs.astro.build/en/guides/deploy/)部署网站至 Vercel、Netlify、GitHub Pages 等托管平台。
 
+# 文档
+
+# 配置
+
+## 站点 信息 `site`
+
+|             | 说明                       | 节横扫                                                     | 示例                      |
+| ----------- | -------------------------- | ---------------------------------------------------------- | ------------------------- |
+| url         | 站点地址                   |                                                            | "https://blog.liks.space" |
+| title       | 站点标题                   | "Liks' Blog"                                               |
+| author      | 站长名 <br> 用于 meta 信息 | "Liks"                                                     |
+| description | 站点简介                   | "Liks 的博客"                                              |
+| favicon     | 站点图标                   | "/icon/favicon.svg" <br> "https://example.com/favicon.svg" |
+
+## 全局设置
+
+```typescript
+global: {
+  avatar: "avatar.jpg",
+  rss: true,
+  i18n: true,
+}
+```
+
+|        | 说明            | 示例                                                                                       |
+| ------ | --------------- | ------------------------------------------------------------------------------------------ |
+| avatar | 头像            | <ul><li>本地文件 "avatar.jpg"</li><li>网页链接 "https://example.com/favicon.svg"</li></ul> |
+| rss    | 启用 RSS        | true                                                                                       |
+| i18n   | 启用 多语言支持 | true                                                                                       |
 # 许可
 
 [GNU General Public License v3.0](https://github.com/Liksone/astro-theme-sora/blob/main/LICENSE)
