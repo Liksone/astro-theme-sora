@@ -139,7 +139,7 @@
   }
 
   article {
-    @apply mx-auto w-full max-w-[600px] lg:max-w-[800px];
+    @apply mx-auto w-full max-w-xl lg:max-w-3xl 2xl:max-w-4xl;
   }
 
   /* 标题 */
