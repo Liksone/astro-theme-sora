@@ -1,5 +1,5 @@
 import { defineConfig } from "astro/config";
-import { themeConfig } from "./src/theme.config.ts";
+import { themeConfig } from "./theme.config.ts";
 import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import remarkWordsAndReadingTime from "./src/scripts/remark-words-reading-time.ts";
@@ -25,3 +25,4 @@ export default defineConfig({
     },
   },
 });
+
