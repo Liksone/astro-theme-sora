@@ -17,23 +17,23 @@ const copyrightOwner = themeConfig.footer.copyright.owner; // || themeConfig.sit
     </div>
 
     {
-      (themeConfig.footer.beian.icp || themeConfig.footer.beian.police) && (
+      (themeConfig.footer.beian.icp.enable ||
+        themeConfig.footer.beian.police.enable) && (
         <div class="text-sm">
-          {themeConfig.footer.beian.icp && (
+          {themeConfig.footer.beian.icp.enable && (
             <span>
               <a
                 href="https://beian.miit.gov.cn"
                 target="_blank"
                 rel="noopener"
               >
-                {themeConfig.footer.beian.icp}
+                {themeConfig.footer.beian.icp.number}
               </a>
             </span>
           )}
-          {themeConfig.footer.beian.icp && themeConfig.footer.beian.police && (
-            <span>·</span>
-          )}
-          {themeConfig.footer.beian.police && (
+          {themeConfig.footer.beian.icp.enable &&
+            themeConfig.footer.beian.police.enable && <span>·</span>}
+          {themeConfig.footer.beian.police.enable && (
             <span>
               <Image
                 src={policeIcon}
@@ -42,12 +42,12 @@ const copyrightOwner = themeConfig.footer.copyright.owner; // || themeConfig.sit
               />
               <a
                 href={
-                  themeConfig.footer.beian.policeLink // || "https://beian.mps.gov.cn"
+                  themeConfig.footer.beian.police.url // || "https://beian.mps.gov.cn"
                 }
                 target="_blank"
                 rel="noopener"
               >
-                {themeConfig.footer.beian.police}
+                {themeConfig.footer.beian.police.number}
               </a>
             </span>
           )}

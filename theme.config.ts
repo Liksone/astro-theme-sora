@@ -35,9 +35,15 @@ export const themeConfig: ThemeConfig = {
       owner: "Liks",
     },
     beian: {
-      // icp: "京 ICP 备 12345678 号",
-      // police: "京公网安备 11010102000001 号",
-      // policeLink: "https://beian.mps.gov.cn/webcode=?",
+      icp: {
+        enable: false,
+        number: "京 ICP 备 12345678 号",
+      },
+      police: {
+        enable: false,
+        number: "京公网安备 12345678901234 号",
+        url: "https://beian.mps.gov.cn/webcode=?",
+      },
     },
   },
   index: {
@@ -167,9 +173,15 @@ interface ThemeConfig {
       owner: string;
     };
     beian: {
-      icp?: string;
-      police?: string;
-      policeLink?: string;
+      icp: {
+        enable: boolean;
+        number?: string;
+      };
+      police: {
+        enable: boolean;
+        number?: string;
+        url?: string;
+      };
     };
   };
   index: {
