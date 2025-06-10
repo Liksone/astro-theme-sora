@@ -44,17 +44,27 @@
 
 # 配置
 
-## 站点 信息 `site`
+## 站点信息
 
-|             | 说明                       | 节横扫                                                     | 示例                      |
-| ----------- | -------------------------- | ---------------------------------------------------------- | ------------------------- |
-| url         | 站点地址                   |                                                            | "https://blog.liks.space" |
-| title       | 站点标题                   | "Liks' Blog"                                               |
-| author      | 站长名 <br> 用于 meta 信息 | "Liks"                                                     |
-| description | 站点简介                   | "Liks 的博客"                                              |
-| favicon     | 站点图标                   | "/icon/favicon.svg" <br> "https://example.com/favicon.svg" |
+```typescript
+site: {
+  url: "https://blog.liks.space",
+  title: "Sora",
+  author: "Liks",
+  description: "A blog theme built with Astro",
+  favicon: "/favicon/favicon-32x32.png",
+}
+```
 
-## 全局设置
+|             | 说明                                                                                                                      |
+| ----------- | ------------------------------------------------------------------------------------------------------------------------- |
+| url         | 站点网址                                                                                                                  |
+| title       | 站点标题                                                                                                                  |
+| author      | 站长名                                                                                                                    |
+| description | 站点简介                                                                                                                  |
+| favicon     | 站点图标 <br> 支持 SVG、PNG、ICO 格式 <br> 相对 `public/` 目录的本地文件路径，或者网址 `"https://example.com/favicon.svg` |
+
+## 基本 全局设置
 
 ```typescript
 global: {
@@ -64,11 +74,56 @@ global: {
 }
 ```
 
-|        | 说明            | 示例                                                                                       |
-| ------ | --------------- | ------------------------------------------------------------------------------------------ |
-| avatar | 头像            | <ul><li>本地文件 "avatar.jpg"</li><li>网页链接 "https://example.com/favicon.svg"</li></ul> |
-| rss    | 启用 RSS        | true                                                                                       |
-| i18n   | 启用 多语言支持 | true                                                                                       |
+|        | 说明           | 示例                                                                                       |
+| ------ | :------------- | :----------------------------------------------------------------------------------------- |
+| avatar | 头像           | <ul><li>本地文件 "avatar.jpg"</li><li>网页链接 "https://example.com/favicon.svg"</li></ul> |
+| rss    | 启用 RSS       | true                                                                                       |
+| i18n   | 启用多语言支持 | true                                                                                       |
+
+## 导航栏
+
+```js
+nav: [
+  {
+    name: "归档",
+    url: "/archives",
+  },
+  {
+    name: "分类",
+    url: "/categories",
+  },
+  {
+    name: "标签",
+    url: "/tags",
+  },
+  {
+    name: "关于",
+    url: "/about",
+  },
+];
+```
+
+|      | 说明     |
+| ---- | -------- |
+| name | 页面名称 |
+| url  | 网址     |
+
+## 页脚
+
+|            | 说明             |
+| ---------- | ---------------- |
+| copyright  | 版权             |
+| time       | 建站时间         |
+| owner      | 版权所有者       |
+| beian      | 备案（中国特供） |
+| icp        | ICP 备案号       |
+| police     | 公安备案号       |
+| policeLink | 公安备案链接     |
+
+## 首页
+
+| social | 社交媒体|
+
 ## 文章页
 
 ```typescript
@@ -85,10 +140,70 @@ post: {
 }
 ```
 
-- `copyright` 版权许可
+<table>
+    <tr>
+    <th></th>
+    <th>说明</th>
+    <th></th>
+    <th>说明</th>
+    </tr>
+    <tr>
+    <td rowspan="2">copyright</td>
+    <td rowspan="2">版权许可</td>
+    <td>CCLicense</td>
+    <td>CC 许可</td>
+    </tr>
+    <tr>
+    <td>url</td>
+    <td>许可网址</td>
+    </tr>
+</table>
 
-  - `CCLicense` CC 许可
-  - `url` 许可网址
+## 赞助
+
+```typescript
+sponsor: {
+  enable: true,
+  alipay: {
+    enable: false,
+    image: "",
+  },
+  wechat: {
+    enable: true,
+    image: "wechatpay.png",
+  },
+  list: true,
+}
+```
+
+|        |        | 说明                                                      |
+| ------ | ------ | --------------------------------------------------------- |
+| enable |        | 启用赞助                                                  |
+| alipay |        | 支付宝二维码                                              |
+|        | enable |                                                           |
+|        | image  | 本地文件或网页链接 Relative to the /src/images/ directory |
+| wechat |        | 微信二维码                                                |
+|        | enable |                                                           |
+|        | image  | 本地文件或网页链接 Relative to the /src/images/ directory |
+| list   |        | 显示赞助名单                                              |
+
+## 工具
+
+```typescript
+tools: {
+  // [Umami](https://umami.is)
+  umami: {
+    // 启用
+    enable: false,
+    // 服务器地址
+    src: "https://cloud.umami.is",
+    // data-website-id
+    websiteID: "c26d92e7-d859-43be-991c-5a5dd0503eb9",
+  },
+}
+```
+
+
 # 许可
 
 [GNU General Public License v3.0](https://github.com/Liksone/astro-theme-sora/blob/main/LICENSE)
