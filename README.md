@@ -28,7 +28,7 @@
 
 2. 配置主题
 
-   修改配置文件 `theme.config.ts` 来自定义主题。
+   修改配置文件 `theme.config.ts` 来自定义主题。详见[配置](https://github.com/Liksone/astro-theme-sora?tab=readme-ov-file#%E9%85%8D%E7%BD%AE)。
 
 3. 编辑文章
 
@@ -40,52 +40,53 @@
 
    自行部署网站至服务器，或者参考 [Astro 文档](https://docs.astro.build/en/guides/deploy/)部署网站至 Vercel、Netlify、GitHub Pages 等托管平台。
 
-# 文档
+<!-- # 文档 -->
 
 # 配置
+
+配置文件为 `theme.config.ts`。
 
 ## 站点信息
 
 ```typescript
 site: {
+  // 网站地址
   url: "https://blog.liks.space",
+  // 网站标题
   title: "Sora",
+  // 站长名
   author: "Liks",
+  // 网站简介
   description: "A blog theme built with Astro",
-  favicon: "/favicon/favicon-32x32.png",
+  // 网站图标
+  // 支持 SVG、PNG、ICO 格式
+  // 位于 public/ 目录内的本地文件路径
+  favicon: "/images/favicon.ico",
 }
 ```
 
-|             | 说明                                                                                                                      |
-| ----------- | ------------------------------------------------------------------------------------------------------------------------- |
-| url         | 站点网址                                                                                                                  |
-| title       | 站点标题                                                                                                                  |
-| author      | 站长名                                                                                                                    |
-| description | 站点简介                                                                                                                  |
-| favicon     | 站点图标 <br> 支持 SVG、PNG、ICO 格式 <br> 相对 `public/` 目录的本地文件路径，或者网址 `"https://example.com/favicon.svg` |
-
-## 基本 全局设置
+## 全局设置
 
 ```typescript
 global: {
+  // 头像
+  // 位于 src/images/ 目录内的本地文件路径
   avatar: "avatar.jpg",
+  // 启用 RSS
   rss: true,
+  // 启用多语言支持（开发中）
   i18n: true,
 }
 ```
 
-|        | 说明           | 示例                                                                                       |
-| ------ | :------------- | :----------------------------------------------------------------------------------------- |
-| avatar | 头像           | <ul><li>本地文件 "avatar.jpg"</li><li>网页链接 "https://example.com/favicon.svg"</li></ul> |
-| rss    | 启用 RSS       | true                                                                                       |
-| i18n   | 启用多语言支持 | true                                                                                       |
-
 ## 导航栏
 
-```js
+```typescript
 nav: [
   {
+    // 页面名
     name: "归档",
+    // 页面地址
     url: "/archives",
   },
   {
@@ -100,98 +101,110 @@ nav: [
     name: "关于",
     url: "/about",
   },
+  ...
 ];
 ```
 
-|      | 说明     |
-| ---- | -------- |
-| name | 页面名称 |
-| url  | 网址     |
-
 ## 页脚
 
-|            | 说明             |
-| ---------- | ---------------- |
-| copyright  | 版权             |
-| time       | 建站时间         |
-| owner      | 版权所有者       |
-| beian      | 备案（中国特供） |
-| icp        | ICP 备案号       |
-| police     | 公安备案号       |
-| policeLink | 公安备案链接     |
+```typescript
+footer: {
+  // 版权
+  copyright: {
+    // 建站时间
+    time: "2024 - 2025",
+    // 版权所有者
+    owner: "Liks",
+  },
+  // 备案（中国特供）
+  beian: {
+    // ICP 备案
+    icp: {
+      // 启用
+      enable: false,
+      // 备案号
+      number: "京 ICP 备 12345678 号",
+    },
+    // 公安备案
+    police: {
+      // 启用
+      enable: false,
+      // 备案号
+      number: "京公网安备 12345678901234 号",
+      // 备案网址
+      url: "https://beian.mps.gov.cn/webcode=?",
+    },
+  },
+}
+```
 
 ## 首页
 
-| social | 社交媒体|
+```typescript
+index: {
+  // 社交媒体
+  social: [
+    {
+      // 名称
+      name: "GitHub",
+      // 启用
+      enable: true,
+      // 网址
+      url: "https://github.com/Liksone",
+    },
+    ...
+  ],
+}
+```
+
+支持 BiliBili、Email、Facebook、GitHub、Instagram、QQ、Telegram、Twitter/X、YouTube、微博、小红书、知乎。
 
 ## 文章页
 
 ```typescript
 post: {
+  // 版权许可
   copyright: {
+    // CC 许可
     CCLicense: {
       BY: true,
       NC: true,
       SA: true,
       ND: false,
     },
-    url: "https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans",
+    // 许可网址
+    url: "https://creativecommons.org/licenses/by-nc-sa/4.0",
   },
 }
 ```
-
-<table>
-    <tr>
-    <th></th>
-    <th>说明</th>
-    <th></th>
-    <th>说明</th>
-    </tr>
-    <tr>
-    <td rowspan="2">copyright</td>
-    <td rowspan="2">版权许可</td>
-    <td>CCLicense</td>
-    <td>CC 许可</td>
-    </tr>
-    <tr>
-    <td>url</td>
-    <td>许可网址</td>
-    </tr>
-</table>
 
 ## 赞助
 
 ```typescript
 sponsor: {
+  // 启用
   enable: true,
+  // 支付宝二维码
   alipay: {
-    enable: false,
-    image: "",
-  },
-  wechat: {
+    // 启用
     enable: true,
-    image: "wechatpay.png",
+    // 位于 src/images/ 目录内的本地文件路径
+    image: "alipay.png",
   },
+  // 微信二维码
+  wechat: {
+    enable: false,
+  },
+  // 显示赞助名单
   list: true,
 }
 ```
-
-|        |        | 说明                                                      |
-| ------ | ------ | --------------------------------------------------------- |
-| enable |        | 启用赞助                                                  |
-| alipay |        | 支付宝二维码                                              |
-|        | enable |                                                           |
-|        | image  | 本地文件或网页链接 Relative to the /src/images/ directory |
-| wechat |        | 微信二维码                                                |
-|        | enable |                                                           |
-|        | image  | 本地文件或网页链接 Relative to the /src/images/ directory |
-| list   |        | 显示赞助名单                                              |
 
 ## 工具
 
 ```typescript
 tools: {
-  // [Umami](https://umami.is)
+  // Umami - https://umami.is
   umami: {
     // 启用
     enable: false,
