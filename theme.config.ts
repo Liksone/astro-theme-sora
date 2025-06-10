@@ -1,10 +1,10 @@
 export const themeConfig: ThemeConfig = {
   site: {
     url: "https://blog.liks.space",
-    title: "Liks' Blog",
+    title: "Sora",
     author: "Liks",
-    description: "Liks 的博客",
-    favicon: "/icon/favicon.svg", // or https://example.com/favicon.svg
+    description: "A blog theme built with Astro",
+    favicon: "/images/favicon.ico",
   },
   global: {
     avatar: "avatar.jpg",
@@ -55,7 +55,7 @@ export const themeConfig: ThemeConfig = {
       {
         name: "Email",
         enable: true,
-        url: "mailto:freybling@outlook.com",
+        url: "mailto:example@xxx.com",
       },
       {
         name: "Facebook",
@@ -108,18 +108,17 @@ export const themeConfig: ThemeConfig = {
         SA: true,
         ND: false,
       },
-      url: "https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh-hans",
+      url: "https://creativecommons.org/licenses/by-nc-sa/4.0",
     },
   },
   sponsor: {
     enable: true,
     alipay: {
-      enable: false,
-      image: "",
+      enable: true,
+      image: "alipay.png",
     },
     wechat: {
-      enable: true,
-      image: "wechatpay.png",
+      enable: false,
     },
     list: true,
   },
@@ -206,11 +205,11 @@ interface ThemeConfig {
     enable: boolean;
     alipay: {
       enable: boolean;
-      image: string;
+      image?: string;
     };
     wechat: {
       enable: boolean;
-      image: string;
+      image?: string;
     };
     list: boolean;
   };
