@@ -301,147 +301,145 @@ function generateTimeTips() {
     </section>
 
     <ToTop />
-
-    <script>
-      function scrollHighlightTOC() {
-        let activeId = null; // 记录当前激活的标题 ID
-
-        // IntersectionObserver 监听哪些标题进入视口
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              const id = entry.target.getAttribute("id");
-              const link = document.querySelector(`#toc a[href="#${id}"]`);
-
-              if (entry.isIntersecting) {
-                // 如果一个标题进入视口，更新活跃标题
-                if (activeId !== id) {
-                  if (activeId) {
-                    // 移除前一个标题的 active 类
-                    const activeLink = document.querySelector(
-                      `#toc a[href="#${activeId}"]`,
-                    );
-                    activeLink.parentElement.classList.remove("active");
-                  }
-                  // 添加当前标题的 active 类
-                  link.parentElement.classList.add("active");
-                  activeId = id; // 更新活跃标题
-                }
-              }
-
-              // 最简单的方案
-              // if (entry.isIntersecting) {
-              //   link.parentElement.classList.add("active");
-              // } else {
-              //   link.parentElement.classList.remove("active");
-              // }
-            });
-          },
-          {
-            // rootMargin: "-40% 0px -40% 0px",
-          },
-        );
-
-        // 开始监听标题
-        const headings = document.querySelectorAll(
-          "#post-content h1, h2, h3, h4",
-        );
-        headings.forEach((heading) => observer.observe(heading));
-      }
-
-      // TODO 逻辑上有点问题，应该与 scrollHighlightTOC 配合
-      function clickHighlightTOC() {
-        document.querySelectorAll("#toc a").forEach((anchor) => {
-          anchor.addEventListener("click", function () {
-            document.querySelectorAll(`#toc .active`).forEach((element) => {
-              element.classList.remove("active");
-            });
-
-            anchor.parentElement.classList.add("active");
-          });
-        });
-      }
-
-      document.addEventListener("DOMContentLoaded", () => {
-        scrollHighlightTOC();
-        clickHighlightTOC();
-      });
-    </script>
-
-    <style>
-      @reference "@styles/main.css";
-
-      /* 时效性提示 */
-      .post-time-tips {
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230000001a' d='M12 21q-1.875 0-3.512-.712t-2.85-1.925t-1.925-2.85T3 12t.713-3.512t1.924-2.85t2.85-1.925T12 3q2.05 0 3.888.875T19 6.35V5q0-.425.288-.712T20 4t.713.288T21 5v4q0 .425-.288.713T20 10h-4q-.425 0-.712-.288T15 9t.288-.712T16 8h1.75q-1.025-1.4-2.525-2.2T12 5Q9.075 5 7.038 7.038T5 12t2.038 4.963T12 19q2.375 0 4.25-1.425t2.475-3.675q.125-.4.45-.6t.725-.15q.425.05.675.362t.15.688q-.725 2.975-3.15 4.888T12 21m1-9.4l2.5 2.5q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-2.8-2.8q-.15-.15-.225-.337T11 11.975V8q0-.425.288-.712T12 7t.713.288T13 8z'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right;
-      }
-
-      /* License */
-      #license {
-        position: relative;
-        overflow: hidden;
-        z-index: 1;
-      }
-
-      #license-icon {
-        position: absolute;
-        top: 50%;
-        right: -2rem;
-        transform: translateY(-50%);
-
-        /* width: 100%; */
-        height: 12rem;
-        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1'%3E%3Cpath d='M.5 7a6.5 6.5 0 1 0 13 0a6.5 6.5 0 1 0-13 0'/%3E%3Cpath d='M6.046 5.6a1.05 1.05 0 0 0-.99-.7h-.7c-.58 0-1.05.47-1.05 1.05v2.1c0 .58.47 1.05 1.05 1.05h.7c.457 0 .846-.292.99-.7m4.648-2.8a1.05 1.05 0 0 0-.99-.7h-.7c-.58 0-1.05.47-1.05 1.05v2.1c0 .58.47 1.05 1.05 1.05h.7c.457 0 .846-.292.99-.7'/%3E%3C/g%3E%3C/svg%3E");
-        opacity: 0.1;
-        z-index: -1;
-      }
-
-      #license .license-item {
-        @apply text-neutral text-sm;
-      }
-
-      /* 目录 */
-      #toc a {
-        /* color: #666; */
-        color: black;
-        opacity: 0.6;
-        transition: all 200ms ease-in-out;
-        /* This small transition makes setting of the active state smooth */
-      }
-      #toc a:hover {
-        /* color: #333; */
-        opacity: 0.9;
-      }
-      #toc .active > a {
-        /* color: black; */
-        opacity: 1;
-        font-weight: 600;
-      }
-      #toc .active {
-        /* color: black; */
-        border-left-color: var(--color-primary);
-        border-start-end-radius: 0.5rem;
-        transition: all 200ms ease-in-out;
-      }
-
-      #toc > div {
-        padding: 0.2rem 0;
-        border-left: 3px solid #efefef;
-      }
-      #toc .toc-item-level-1 {
-        padding-left: 10px;
-      }
-      #toc .toc-item-level-2 {
-        padding-left: calc(10px + 0.6rem);
-      }
-      #toc .toc-item-level-3 {
-        padding-left: calc(10px + 1.2rem);
-      }
-      #toc .toc-item-level-4 {
-        padding-left: calc(10px + 1.8rem);
-      }
-    </style>
   </article>
 </Layout>
+
+<script>
+  function scrollHighlightTOC() {
+    let activeId = null; // 记录当前激活的标题 ID
+
+    // IntersectionObserver 监听哪些标题进入视口
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const id = entry.target.getAttribute("id");
+          const link = document.querySelector(`#toc a[href="#${id}"]`);
+
+          if (entry.isIntersecting) {
+            // 如果一个标题进入视口，更新活跃标题
+            if (activeId !== id) {
+              if (activeId) {
+                // 移除前一个标题的 active 类
+                const activeLink = document.querySelector(
+                  `#toc a[href="#${activeId}"]`,
+                );
+                activeLink.parentElement.classList.remove("active");
+              }
+              // 添加当前标题的 active 类
+              link.parentElement.classList.add("active");
+              activeId = id; // 更新活跃标题
+            }
+          }
+
+          // 最简单的方案
+          // if (entry.isIntersecting) {
+          //   link.parentElement.classList.add("active");
+          // } else {
+          //   link.parentElement.classList.remove("active");
+          // }
+        });
+      },
+      {
+        // rootMargin: "-40% 0px -40% 0px",
+      },
+    );
+
+    // 开始监听标题
+    const headings = document.querySelectorAll("#post-content h1, h2, h3, h4");
+    headings.forEach((heading) => observer.observe(heading));
+  }
+
+  // TODO 逻辑上有点问题，应该与 scrollHighlightTOC 配合
+  function clickHighlightTOC() {
+    document.querySelectorAll("#toc a").forEach((anchor) => {
+      anchor.addEventListener("click", function () {
+        document.querySelectorAll(`#toc .active`).forEach((element) => {
+          element.classList.remove("active");
+        });
+
+        anchor.parentElement.classList.add("active");
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    scrollHighlightTOC();
+    clickHighlightTOC();
+  });
+</script>
+
+<style>
+  @reference "@styles/main.css";
+
+  /* 时效性提示 */
+  .post-time-tips {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%230000001a' d='M12 21q-1.875 0-3.512-.712t-2.85-1.925t-1.925-2.85T3 12t.713-3.512t1.924-2.85t2.85-1.925T12 3q2.05 0 3.888.875T19 6.35V5q0-.425.288-.712T20 4t.713.288T21 5v4q0 .425-.288.713T20 10h-4q-.425 0-.712-.288T15 9t.288-.712T16 8h1.75q-1.025-1.4-2.525-2.2T12 5Q9.075 5 7.038 7.038T5 12t2.038 4.963T12 19q2.375 0 4.25-1.425t2.475-3.675q.125-.4.45-.6t.725-.15q.425.05.675.362t.15.688q-.725 2.975-3.15 4.888T12 21m1-9.4l2.5 2.5q.275.275.275.7t-.275.7t-.7.275t-.7-.275l-2.8-2.8q-.15-.15-.225-.337T11 11.975V8q0-.425.288-.712T12 7t.713.288T13 8z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  /* License */
+  #license {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  #license-icon {
+    position: absolute;
+    top: 50%;
+    right: -2rem;
+    transform: translateY(-50%);
+
+    /* width: 100%; */
+    height: 12rem;
+    content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cg fill='none' stroke='%23000' stroke-linecap='round' stroke-linejoin='round' stroke-width='1'%3E%3Cpath d='M.5 7a6.5 6.5 0 1 0 13 0a6.5 6.5 0 1 0-13 0'/%3E%3Cpath d='M6.046 5.6a1.05 1.05 0 0 0-.99-.7h-.7c-.58 0-1.05.47-1.05 1.05v2.1c0 .58.47 1.05 1.05 1.05h.7c.457 0 .846-.292.99-.7m4.648-2.8a1.05 1.05 0 0 0-.99-.7h-.7c-.58 0-1.05.47-1.05 1.05v2.1c0 .58.47 1.05 1.05 1.05h.7c.457 0 .846-.292.99-.7'/%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.1;
+    z-index: -1;
+  }
+
+  #license .license-item {
+    @apply text-neutral text-sm;
+  }
+
+  /* 目录 */
+  #toc a {
+    /* color: #666; */
+    color: black;
+    opacity: 0.6;
+    transition: all 200ms ease-in-out;
+    /* This small transition makes setting of the active state smooth */
+  }
+  #toc a:hover {
+    /* color: #333; */
+    opacity: 0.9;
+  }
+  #toc .active > a {
+    /* color: black; */
+    opacity: 1;
+    font-weight: 600;
+  }
+  #toc .active {
+    /* color: black; */
+    border-left-color: var(--color-primary);
+    border-start-end-radius: 0.5rem;
+    transition: all 200ms ease-in-out;
+  }
+
+  #toc > div {
+    padding: 0.2rem 0;
+    border-left: 3px solid #efefef;
+  }
+  #toc .toc-item-level-1 {
+    padding-left: 10px;
+  }
+  #toc .toc-item-level-2 {
+    padding-left: calc(10px + 0.6rem);
+  }
+  #toc .toc-item-level-3 {
+    padding-left: calc(10px + 1.2rem);
+  }
+  #toc .toc-item-level-4 {
+    padding-left: calc(10px + 1.8rem);
+  }
+</style>
