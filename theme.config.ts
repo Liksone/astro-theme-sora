@@ -122,6 +122,13 @@ export const themeConfig: ThemeConfig = {
     },
     list: true,
   },
+  tools: {
+    umami: {
+      enable: false,
+      src: "",
+      websiteID: "",
+    },
+  },
   // comment: {
   //   // enable comment system
   //   enabled: true, // true, false
@@ -143,13 +150,6 @@ export const themeConfig: ThemeConfig = {
   //     imageUploader: false, // true, false
   //   },
   // },
-  tools: {
-    umami: {
-      enable: false,
-      src: "",
-      websiteID: "",
-    },
-  },
 };
 
 interface ThemeConfig {
