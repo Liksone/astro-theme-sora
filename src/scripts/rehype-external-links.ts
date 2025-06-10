@@ -28,19 +28,19 @@ export default function rehypeExternalLinks() {
 
       // 添加链接图标
       const faviconMap = {
-        "github.com": "/favicons/github.svg",
-        "halo.run": "/favicons/halo.webp",
-        "ld246.com": "/favicons/ld246.png",
-        "www.cnblogs.com": "/favicons/cnblogs.ico",
-        "zhihu.com": "/favicons/zhihu.ico",
-        "post.smzdm.com": "/favicons/smzdm.ico",
-        "www.reddit.com": "/favicons/reddit.png",
+        "github.com": "github.svg",
+        "halo.run": "halo.webp",
+        "ld246.com": "ld246.png",
+        "www.cnblogs.com": "cnblogs.ico",
+        "zhihu.com": "zhihu.ico",
+        "post.smzdm.com": "smzdm.ico",
+        "www.reddit.com": "reddit.png",
       };
       const url = new URL(node.properties.href);
       let favicon: string;
       for (const [key, value] of Object.entries(faviconMap)) {
         if (url.hostname.includes(key)) {
-          favicon = value;
+          favicon = `/images/favicons/${value}`;
           break;
         }
       }
