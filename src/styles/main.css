@@ -249,6 +249,7 @@
 
   /* 代码块 */
   code {
+    color: var(--color-primary);
     font-size: 85%;
     padding: 2px 4px;
     border-radius: 6px;
@@ -269,6 +270,7 @@
   }
 
   pre > code {
+    color: inherit;
     background-color: inherit;
     padding: 0;
   }
