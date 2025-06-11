@@ -337,6 +337,10 @@
     /* width: 10rem; */
     width: 60%;
   }
+
+  strong {
+    color: var(--color-primary);
+  }
 }
 
 @layer components {
