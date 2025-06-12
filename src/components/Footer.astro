@@ -17,10 +17,10 @@ const copyrightOwner = themeConfig.footer.copyright.owner; // || themeConfig.sit
     </div>
 
     {
-      (themeConfig.footer.beian.icp.enable ||
-        themeConfig.footer.beian.police.enable) && (
+      (themeConfig.footer.beian.icp.enabled ||
+        themeConfig.footer.beian.police.enabled) && (
         <div class="text-sm">
-          {themeConfig.footer.beian.icp.enable && (
+          {themeConfig.footer.beian.icp.enabled && (
             <span>
               <a
                 href="https://beian.miit.gov.cn"
@@ -31,9 +31,9 @@ const copyrightOwner = themeConfig.footer.copyright.owner; // || themeConfig.sit
               </a>
             </span>
           )}
-          {themeConfig.footer.beian.icp.enable &&
-            themeConfig.footer.beian.police.enable && <span>·</span>}
-          {themeConfig.footer.beian.police.enable && (
+          {themeConfig.footer.beian.icp.enabled &&
+            themeConfig.footer.beian.police.enabled && <span>·</span>}
+          {themeConfig.footer.beian.police.enabled && (
             <span>
               <Image
                 src={policeIcon}

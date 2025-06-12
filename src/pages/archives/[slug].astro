@@ -25,10 +25,10 @@ const { Content, headings, remarkPluginFrontmatter } = await render(post);
 // 动态导入图片
 // const images = import.meta.glob<{ default: ImageMetadata }>("@images/*");
 //
-// const alipay = themeConfig.sponsor.alipay.enable
+// const alipay = themeConfig.sponsor.alipay.enabled
 //   ? await images[path.join("/src/images", themeConfig.sponsor.alipay.image)]()
 //   : null;
-// const wechat = themeConfig.sponsor.wechat.enable
+// const wechat = themeConfig.sponsor.wechat.enabled
 //   ? await images[path.join("/src/images", themeConfig.sponsor.wechat.image)]()
 //   : undefined;
 
@@ -301,12 +301,12 @@ function generateTimeTips() {
         </button>
           */
         }
-        {themeConfig.sponsor.enable && <Sponsor />}
+        {themeConfig.sponsor.enabled && <Sponsor />}
       </div>
     </div>
 
     {
-      themeConfig.comment.enable && themeConfig.comment.artalk.enable && (
+      themeConfig.comment.enabled && themeConfig.comment.artalk.enabled && (
         <Comment />
       )
     }

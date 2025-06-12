@@ -36,11 +36,11 @@ export const themeConfig: ThemeConfig = {
     },
     beian: {
       icp: {
-        enable: false,
+        enabled: false,
         number: "京 ICP 备 12345678 号",
       },
       police: {
-        enable: false,
+        enabled: false,
         number: "京公网安备 12345678901234 号",
         url: "https://beian.mps.gov.cn/webcode=?",
       },
@@ -50,53 +50,53 @@ export const themeConfig: ThemeConfig = {
     social: [
       {
         name: "BiliBili",
-        enable: false,
+        enabled: false,
       },
       {
         name: "Email",
-        enable: true,
+        enabled: true,
         url: "mailto:example@xxx.com",
       },
       {
         name: "Facebook",
-        enable: false,
+        enabled: false,
       },
       {
         name: "GitHub",
-        enable: true,
+        enabled: true,
         url: "https://github.com/Liksone",
       },
       {
         name: "Instagram",
-        enable: false,
+        enabled: false,
       },
       {
         name: "QQ",
-        enable: false,
+        enabled: false,
       },
       {
         name: "Telegram",
-        enable: false,
+        enabled: false,
       },
       {
         name: "Twitter/X",
-        enable: false,
+        enabled: false,
       },
       {
         name: "YouTube",
-        enable: false,
+        enabled: false,
       },
       {
         name: "微博",
-        enable: false,
+        enabled: false,
       },
       {
         name: "小红书",
-        enable: false,
+        enabled: false,
       },
       {
         name: "知乎",
-        enable: false,
+        enabled: false,
       },
     ],
   },
@@ -112,27 +112,27 @@ export const themeConfig: ThemeConfig = {
     },
   },
   sponsor: {
-    enable: true,
+    enabled: true,
     alipay: {
-      enable: true,
+      enabled: true,
       image: "alipay.png",
     },
     wechat: {
-      enable: false,
+      enabled: false,
     },
     list: true,
   },
   comment: {
-    enable: false,
+    enabled: false,
     artalk: {
-      enable: false,
+      enabled: false,
       server: "https://artalk.example.com",
       site: "Sora",
     },
   },
   tools: {
     umami: {
-      enable: false,
+      enabled: false,
       src: "",
       websiteID: "",
     },
@@ -160,11 +160,11 @@ interface ThemeConfig {
     };
     beian: {
       icp: {
-        enable: boolean;
+        enabled: boolean;
         number?: string;
       };
       police: {
-        enable: boolean;
+        enabled: boolean;
         number?: string;
         url?: string;
       };
@@ -173,7 +173,7 @@ interface ThemeConfig {
   index: {
     social: {
       name: string;
-      enable: boolean;
+      enabled: boolean;
       url?: string;
     }[];
   };
@@ -189,28 +189,28 @@ interface ThemeConfig {
     };
   };
   sponsor: {
-    enable: boolean;
+    enabled: boolean;
     alipay: {
-      enable: boolean;
+      enabled: boolean;
       image?: string;
     };
     wechat: {
-      enable: boolean;
+      enabled: boolean;
       image?: string;
     };
     list: boolean;
   };
   comment: {
-    enable: boolean;
+    enabled: boolean;
     artalk: {
-      enable: boolean;
+      enabled: boolean;
       server?: string;
       site?: string;
     };
   };
   tools: {
     umami: {
-      enable: boolean;
+      enabled: boolean;
       src: string;
       websiteID: string;
     };

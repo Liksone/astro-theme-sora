@@ -48,7 +48,7 @@ const iconMap: Record<string, string> = {
         <div class="text-center">
           {
             themeConfig.index.social
-              .filter((item) => item.enable)
+              .filter((item) => item.enabled)
               .map((item) => (
                 <a href={item.url} target="_blank" rel="noopener">
                   <span class={`iconify-large ${iconMap[item.name]}`} />

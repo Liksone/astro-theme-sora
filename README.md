@@ -121,14 +121,14 @@ footer: {
     // ICP 备案
     icp: {
       // 启用
-      enable: false,
+      enabled: false,
       // 备案号
       number: "京 ICP 备 12345678 号",
     },
     // 公安备案
     police: {
       // 启用
-      enable: false,
+      enabled: false,
       // 备案号
       number: "京公网安备 12345678901234 号",
       // 备案网址
@@ -148,7 +148,7 @@ index: {
       // 名称
       name: "GitHub",
       // 启用
-      enable: true,
+      enabled: true,
       // 网址
       url: "https://github.com/Liksone",
     },
@@ -183,17 +183,17 @@ post: {
 ```typescript
 sponsor: {
   // 启用
-  enable: true,
+  enabled: true,
   // 支付宝二维码
   alipay: {
     // 启用
-    enable: true,
+    enabled: true,
     // 位于 src/images/ 目录内的本地文件路径
     image: "alipay.png",
   },
   // 微信二维码
   wechat: {
-    enable: false,
+    enabled: false,
   },
   // 显示赞助名单
   list: true,
@@ -205,10 +205,10 @@ sponsor: {
 ```typescript
 comment: {
   // 启用
-  enable: false,
+  enabled: false,
   // Artalk - https://artalk.js.org
   artalk: {
-    enable: false,
+    enabled: false,
     // 后端服务器地址
     server: "https://artalk.example.com",
     // 站点名
@@ -224,7 +224,7 @@ tools: {
   // Umami - https://umami.is
   umami: {
     // 启用
-    enable: false,
+    enabled: false,
     // 服务器地址
     src: "https://cloud.umami.is",
     // data-website-id
