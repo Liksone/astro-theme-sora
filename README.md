@@ -200,6 +200,23 @@ sponsor: {
 }
 ```
 
+## 评论
+
+```typescript
+comment: {
+  // 启用
+  enable: false,
+  // Artalk - https://artalk.js.org
+  artalk: {
+    enable: false,
+    // 后端服务器地址
+    server: "https://artalk.example.com",
+    // 站点名
+    site: "Sora",
+  },
+}
+```
+
 ## 工具
 
 ```typescript

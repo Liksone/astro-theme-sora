@@ -1,0 +1,30 @@
+---
+import { themeConfig } from "@config";
+// const server = themeConfig.comment.artalk.server;
+// const site = themeConfig.comment.artalk.site;
+---
+
+<div class="mt-16" id="artalk"></div>
+
+{
+  /*
+<link
+  href={themeConfig.comment.artalk.server + "/dist/Artalk.css"}
+  rel="stylesheet"
+/>
+
+<script src={themeConfig.comment.artalk.server + "/dist/Artalk.js"}></script>
+ */
+}
+
+<script>
+  import "artalk/Artalk.css";
+  import Artalk from "artalk";
+  import { themeConfig } from "@config";
+
+  Artalk.init({
+    el: "#artalk",
+    server: themeConfig.comment.artalk.server,
+    site: themeConfig.comment.artalk.site,
+  });
+</script>

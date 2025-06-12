@@ -7,6 +7,7 @@ import dayjs from "dayjs";
 import { getCategoryUrl, getTagUrl } from "@scripts/url-utils";
 import ToTop from "@components/ToTop.astro";
 import Sponsor from "@components/Sponsor.astro";
+import Comment from "@components/Comment.astro";
 
 export const getStaticPaths = (async () => {
   const posts = await getCollection("blog");
@@ -300,6 +301,12 @@ function generateTimeTips() {
         {themeConfig.sponsor.enable && <Sponsor />}
       </div>
     </div>
+
+    {
+      themeConfig.comment.enable && themeConfig.comment.artalk.enable && (
+        <Comment />
+      )
+    }
   </main>
 
   <ToTop />

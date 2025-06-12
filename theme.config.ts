@@ -122,6 +122,14 @@ export const themeConfig: ThemeConfig = {
     },
     list: true,
   },
+  comment: {
+    enable: false,
+    artalk: {
+      enable: false,
+      server: "https://artalk.example.com",
+      site: "Sora",
+    },
+  },
   tools: {
     umami: {
       enable: false,
@@ -129,27 +137,6 @@ export const themeConfig: ThemeConfig = {
       websiteID: "",
     },
   },
-  // comment: {
-  //   // enable comment system
-  //   enabled: true, // true, false
-  //   // waline comment system
-  //   // https://waline.js.org/en/
-  //   waline: {
-  //     // server url
-  //     serverURL: "https://retypeset-comment.radishzz.cc",
-  //     // emoji url
-  //     emoji: [
-  //       "https://unpkg.com/@waline/emojis@1.2.0/tw-emoji",
-  //       // 'https://unpkg.com/@waline/emojis@1.2.0/bmoji',
-  //       // more emojis: https://waline.js.org/en/guide/features/emoji.html
-  //     ],
-  //     // gif search
-  //     search: false, // true, false
-  //     // image uploader
-  //     // bug: unable to hide image uploader icon
-  //     imageUploader: false, // true, false
-  //   },
-  // },
 };
 
 interface ThemeConfig {
@@ -212,6 +199,14 @@ interface ThemeConfig {
       image?: string;
     };
     list: boolean;
+  };
+  comment: {
+    enable: boolean;
+    artalk: {
+      enable: boolean;
+      server?: string;
+      site?: string;
+    };
   };
   tools: {
     umami: {

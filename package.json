@@ -12,6 +12,7 @@
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.1",
     "@tailwindcss/vite": "^4.1.8",
+    "artalk": "^2.9.1",
     "astro": "^5.9.2",
     "hast-util-from-html": "^2.0.3",
     "hast-util-to-string": "^3.0.1",
