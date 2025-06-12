@@ -284,20 +284,23 @@ function generateTimeTips() {
       }
     </div>
 
-    <!-- 赞赏 -->
+    {/* 赞赏 */}
     <div class="relative">
       <div class="my-8 flex justify-center gap-4 text-sm">
-        <!-- <button -->
-        <!--   class="card-small cursor-pointer" -->
-        <!--   id="upvote-button" -->
-        <!--   th:data-post-id="${post.metadata.name}" -->
-        <!-- > -->
-        <!--   <span class="iconify-inline icon-[flowbite--thumbs-up-solid]" -->
-        <!--   ></span> -->
-        <!--   赞 -->
-        <!--   <span id="upvote-number" th:text="${post.stats?.upvote ?: 0}" -->
-        <!--   ></span> -->
-        <!-- </button> -->
+        {
+          /* <button
+          class="card-small cursor-pointer"
+          id="upvote-button"
+          th:data-post-id="${post.metadata.name}"
+        >
+          <span class="iconify-inline icon-[flowbite--thumbs-up-solid]"
+          ></span>
+          赞
+          <span id="upvote-number" th:text="${post.stats?.upvote ?: 0}"
+          ></span>
+        </button>
+          */
+        }
         {themeConfig.sponsor.enable && <Sponsor />}
       </div>
     </div>
