@@ -138,10 +138,6 @@
     padding: 0 32px;
   }
 
-  article {
-    @apply mx-auto w-full max-w-xl lg:max-w-3xl 2xl:max-w-4xl;
-  }
-
   /* 标题 */
   h1,
   h2,

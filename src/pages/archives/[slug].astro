@@ -63,81 +63,82 @@ function generateTimeTips() {
 ---
 
 <Layout title={post.data.title + " | " + themeConfig.site.title}>
-  <article>
-    {
-      /* 封面图 */
-      /* <img
+  <main class="mx-auto w-full max-w-xl lg:max-w-3xl 2xl:max-w-4xl">
+    <article>
+      {
+        /* 封面图 */
+        /* <img
         th:if="${!#strings.isEmpty(post.spec.cover)}"
         th:src="${post.spec.cover}"
         class="shadow-shadow mx-auto mb-8 h-[10rem] w-full rounded-lg object-contain"
 	/> */
-    }
+      }
 
-    <!-- 标题 -->
-    <div class="text-center font-serif text-[2rem] font-bold">
-      {post.data.title}
-    </div>
+      <!-- 标题 -->
+      <div class="text-center font-serif text-[2rem] font-bold">
+        {post.data.title}
+      </div>
 
-    {/* 文章元信息 */}
-    <div class="mt-4 flex flex-wrap justify-center gap-3 font-mono text-sm">
-      <!-- 发布时间 -->
-      <span>
-        <span class="icon-[bx--calendar-alt] iconify-inline"></span>
-        <time>
-          {post.data.publishDate}
-        </time>
-      </span>
-      {
-        /* 更新时间 */
-        post.data.updateDate && (
-          <span>
-            <span class="icon-[bx--calendar-check] iconify-inline" />
-            <time>{post.data.updateDate}</time>
-          </span>
-        )
-      }
-      {
-        /* 分类 */
-        post.data.categories && (
-          <span>
-            <span class="icon-[material-symbols--folder-outline-rounded] iconify-inline" />
-            <span class="inline-flex gap-2">
-              {post.data.categories.map((category) => (
-                <a href={getCategoryUrl(category)}>{category}</a>
-              ))}
-            </span>
-          </span>
-        )
-      }
-      {
-        /* 标签 */
-        post.data.tags && (
-          <span>
-            <span class="icon-[mdi--tag-outline] iconify-inline" />
-            <span class="inline-flex gap-2">
-              {post.data.tags.map((tag) => (
-                <a href={getTagUrl(tag)}>{tag}</a>
-              ))}
-            </span>
-          </span>
-        )
-      }
-      {/* 字数统计 */}
-      <span>
-        <span class="icon-[icon-park-outline--word] iconify-inline"></span>
+      {/* 文章元信息 */}
+      <div class="mt-4 flex flex-wrap justify-center gap-3 font-mono text-sm">
+        <!-- 发布时间 -->
         <span>
-          {remarkPluginFrontmatter.words}
+          <span class="icon-[bx--calendar-alt] iconify-inline"></span>
+          <time>
+            {post.data.publishDate}
+          </time>
         </span>
-      </span>
-      {/* 预计阅读时间 */}
-      <span>
-        <span class="icon-[mingcute--time-line] iconify-inline"></span>
+        {
+          /* 更新时间 */
+          post.data.updateDate && (
+            <span>
+              <span class="icon-[bx--calendar-check] iconify-inline" />
+              <time>{post.data.updateDate}</time>
+            </span>
+          )
+        }
+        {
+          /* 分类 */
+          post.data.categories && (
+            <span>
+              <span class="icon-[material-symbols--folder-outline-rounded] iconify-inline" />
+              <span class="inline-flex gap-2">
+                {post.data.categories.map((category) => (
+                  <a href={getCategoryUrl(category)}>{category}</a>
+                ))}
+              </span>
+            </span>
+          )
+        }
+        {
+          /* 标签 */
+          post.data.tags && (
+            <span>
+              <span class="icon-[mdi--tag-outline] iconify-inline" />
+              <span class="inline-flex gap-2">
+                {post.data.tags.map((tag) => (
+                  <a href={getTagUrl(tag)}>{tag}</a>
+                ))}
+              </span>
+            </span>
+          )
+        }
+        {/* 字数统计 */}
         <span>
-          {remarkPluginFrontmatter.readingTime}
+          <span class="icon-[icon-park-outline--word] iconify-inline"></span>
+          <span>
+            {remarkPluginFrontmatter.words}
+          </span>
         </span>
-      </span>
-      {
-        /*
+        {/* 预计阅读时间 */}
+        <span>
+          <span class="icon-[mingcute--time-line] iconify-inline"></span>
+          <span>
+            {remarkPluginFrontmatter.readingTime}
+          </span>
+        </span>
+        {
+          /*
       浏览量
       <span>
       <span class="icon-[uil--chart-line] iconify-inline"></span>
@@ -146,162 +147,162 @@ function generateTimeTips() {
       </span>
       </span>
       */
-      }
-    </div>
-
-    <!-- 摘要 -->
-    <!-- <div class="card abstract my-4 text-sm"> -->
-    <!--   <span> -->
-    <!--     {post.status.excerpt} -->
-    <!--   </span> -->
-    <!-- </div> -->
-
-    <!-- 时效性提示 -->
-    <div class="card post-time-tips text-neutral my-4 text-sm">
-      {generateTimeTips()}
-    </div>
-
-    <section class="relative">
-      <div id="post-content">
-        <Content />
-      </div>
-
-      <!-- <hr class="my-8 border-t-4 text-black opacity-10" /> -->
-
-      {/* 版权许可协议 */}
-      <div class="card mt-14 px-6 py-4" id="license">
-        <div id="license-icon"></div>
-
-        <div>{post.data.title}</div>
-        <div class="license-item mt-1">
-          {decodeURI(Astro.url.toString())}
-        </div>
-
-        <div class="mt-3 gap-12 sm:flex">
-          <div>
-            <div class="license-item">作者</div>
-            <span>
-              {post.data.author}
-            </span>
-          </div>
-
-          <div>
-            <div class="license-item">发布于</div>
-            <time>
-              {post.data.publishDate}
-            </time>
-          </div>
-
-          {
-            post.data.updateDate && (
-              <div>
-                <div class="license-item">更新于</div>
-                <time>{post.data.updateDate}</time>
-              </div>
-            )
-          }
-
-          <div>
-            <div class="license-item">许可</div>
-            <div>
-              <a href={themeConfig.post.copyright.url}>
-                <span class="icon-[cib--creative-commons] iconify-inline"
-                ></span>
-                {
-                  themeConfig.post.copyright.CCLicense.BY && (
-                    <span class="icon-[cib--creative-commons-by] iconify-inline" />
-                  )
-                }
-                {
-                  themeConfig.post.copyright.CCLicense.NC && (
-                    <span class="icon-[cib--creative-commons-nc] iconify-inline" />
-                  )
-                }
-                {
-                  themeConfig.post.copyright.CCLicense.SA && (
-                    <span class="icon-[cib--creative-commons-sa] iconify-inline" />
-                  )
-                }
-                {
-                  themeConfig.post.copyright.CCLicense.ND && (
-                    <span class="icon-[cib--creative-commons-nd] iconify-inline" />
-                  )
-                }
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* 末尾分类 & 标签 */}
-        {
-          (post.data.categories || post.data.tags) && (
-            <div class="mt-4 flex justify-between text-sm">
-              <span class="flex gap-2">
-                {post.data.categories &&
-                  post.data.categories.map((category) => (
-                    <a class="card-small" href={getCategoryUrl(category)}>
-                      <span class="icon-[material-symbols--folder-outline-rounded] iconify-inline" />
-                      <span>{category}</span>
-                    </a>
-                  ))}
-              </span>
-
-              <span class="flex gap-2">
-                {post.data.tags &&
-                  post.data.tags.map((tag) => (
-                    <a class="card-small" href={getTagUrl(tag)}>
-                      <span class="icon-[mdi--tag-outline] iconify-inline" />
-                      <span>{tag}</span>
-                    </a>
-                  ))}
-              </span>
-            </div>
-          )
         }
       </div>
 
-      <!-- 赞赏 -->
-      <div class="relative">
-        <div class="my-8 flex justify-center gap-4 text-sm">
-          <!-- <button -->
-          <!--   class="card-small cursor-pointer" -->
-          <!--   id="upvote-button" -->
-          <!--   th:data-post-id="${post.metadata.name}" -->
-          <!-- > -->
-          <!--   <span class="iconify-inline icon-[flowbite--thumbs-up-solid]" -->
-          <!--   ></span> -->
-          <!--   赞 -->
-          <!--   <span id="upvote-number" th:text="${post.stats?.upvote ?: 0}" -->
-          <!--   ></span> -->
-          <!-- </button> -->
-          {themeConfig.sponsor.enable && <Sponsor />}
+      <!-- 摘要 -->
+      <!-- <div class="card abstract my-4 text-sm"> -->
+      <!--   <span> -->
+      <!--     {post.status.excerpt} -->
+      <!--   </span> -->
+      <!-- </div> -->
+
+      <!-- 时效性提示 -->
+      <div class="card post-time-tips text-neutral my-4 text-sm">
+        {generateTimeTips()}
+      </div>
+
+      <section class="relative">
+        <div id="post-content">
+          <Content />
+        </div>
+
+        {/* 目录 */}
+        <aside
+          class="absolute top-0 right-[-160px] hidden h-full w-[120px] md:block"
+        >
+          <!-- <div class="mt-[1rem]"># 目录</div> -->
+          <nav
+            class="sticky top-10 pl-4 font-serif text-[0.8rem] active:border-l-primary"
+            id="toc"
+          >
+            {
+              headings
+                .filter((heading) => heading.depth < 5)
+                .map((heading) => (
+                  <div class={`toc-item-level-${heading.depth}`}>
+                    <a href={`#${heading.slug}`}>{heading.text}</a>
+                  </div>
+                ))
+            }
+          </nav>
+        </aside>
+      </section>
+    </article>
+
+    <!-- <hr class="my-8 border-t-4 text-black opacity-10" /> -->
+
+    {/* 版权许可协议 */}
+    <div class="card mt-14 px-6 py-4" id="license">
+      <div id="license-icon"></div>
+
+      <div>{post.data.title}</div>
+      <div class="license-item mt-1">
+        {decodeURI(Astro.url.toString())}
+      </div>
+
+      <div class="mt-3 gap-12 sm:flex">
+        <div>
+          <div class="license-item">作者</div>
+          <span>
+            {post.data.author}
+          </span>
+        </div>
+
+        <div>
+          <div class="license-item">发布于</div>
+          <time>
+            {post.data.publishDate}
+          </time>
+        </div>
+
+        {
+          post.data.updateDate && (
+            <div>
+              <div class="license-item">更新于</div>
+              <time>{post.data.updateDate}</time>
+            </div>
+          )
+        }
+
+        <div>
+          <div class="license-item">许可</div>
+          <div>
+            <a href={themeConfig.post.copyright.url}>
+              <span class="icon-[cib--creative-commons] iconify-inline"></span>
+              {
+                themeConfig.post.copyright.CCLicense.BY && (
+                  <span class="icon-[cib--creative-commons-by] iconify-inline" />
+                )
+              }
+              {
+                themeConfig.post.copyright.CCLicense.NC && (
+                  <span class="icon-[cib--creative-commons-nc] iconify-inline" />
+                )
+              }
+              {
+                themeConfig.post.copyright.CCLicense.SA && (
+                  <span class="icon-[cib--creative-commons-sa] iconify-inline" />
+                )
+              }
+              {
+                themeConfig.post.copyright.CCLicense.ND && (
+                  <span class="icon-[cib--creative-commons-nd] iconify-inline" />
+                )
+              }
+            </a>
+          </div>
         </div>
       </div>
 
-      {/* 目录 */}
-      <aside
-        class="absolute top-0 right-[-160px] hidden h-full w-[120px] md:block"
-      >
-        <!-- <div class="mt-[1rem]"># 目录</div> -->
-        <nav
-          class="sticky top-10 pl-4 font-serif text-[0.8rem] active:border-l-primary"
-          id="toc"
-        >
-          {
-            headings
-              .filter((heading) => heading.depth < 5)
-              .map((heading) => (
-                <div class={`toc-item-level-${heading.depth}`}>
-                  <a href={`#${heading.slug}`}>{heading.text}</a>
-                </div>
-              ))
-          }
-        </nav>
-      </aside>
-    </section>
+      {/* 末尾分类 & 标签 */}
+      {
+        (post.data.categories || post.data.tags) && (
+          <div class="mt-4 flex justify-between text-sm">
+            <span class="flex gap-2">
+              {post.data.categories &&
+                post.data.categories.map((category) => (
+                  <a class="card-small" href={getCategoryUrl(category)}>
+                    <span class="icon-[material-symbols--folder-outline-rounded] iconify-inline" />
+                    <span>{category}</span>
+                  </a>
+                ))}
+            </span>
 
-    <ToTop />
-  </article>
+            <span class="flex gap-2">
+              {post.data.tags &&
+                post.data.tags.map((tag) => (
+                  <a class="card-small" href={getTagUrl(tag)}>
+                    <span class="icon-[mdi--tag-outline] iconify-inline" />
+                    <span>{tag}</span>
+                  </a>
+                ))}
+            </span>
+          </div>
+        )
+      }
+    </div>
+
+    <!-- 赞赏 -->
+    <div class="relative">
+      <div class="my-8 flex justify-center gap-4 text-sm">
+        <!-- <button -->
+        <!--   class="card-small cursor-pointer" -->
+        <!--   id="upvote-button" -->
+        <!--   th:data-post-id="${post.metadata.name}" -->
+        <!-- > -->
+        <!--   <span class="iconify-inline icon-[flowbite--thumbs-up-solid]" -->
+        <!--   ></span> -->
+        <!--   赞 -->
+        <!--   <span id="upvote-number" th:text="${post.stats?.upvote ?: 0}" -->
+        <!--   ></span> -->
+        <!-- </button> -->
+        {themeConfig.sponsor.enable && <Sponsor />}
+      </div>
+    </div>
+  </main>
+
+  <ToTop />
 </Layout>
 
 <script>

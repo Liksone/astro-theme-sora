@@ -21,30 +21,28 @@ const years = Object.keys(groupedPosts)
 ---
 
 <Layout title={"归档" + " | " + themeConfig.site.title}>
-  <main>
-    <div class="mx-auto max-w-[780px]">
-      {
-        years.map((year) => (
-          <div>
-            <h2>{year}</h2>
-            {groupedPosts[year].map((post) => (
-              <div class="mb-2 ml-4">
-                <time class="mr-8 font-mono text-neutral-500">
-                  {post.data.publishDate}
-                </time>
-                <span>
-                  <a
-                    href={`/archives/${post.id}`}
-                    class="font-serif font-semibold text-black"
-                  >
-                    {post.data.title}
-                  </a>
-                </span>
-              </div>
-            ))}
-          </div>
-        ))
-      }
-    </div>
+  <main class="mx-auto max-w-[780px]">
+    {
+      years.map((year) => (
+        <div>
+          <h2>{year}</h2>
+          {groupedPosts[year].map((post) => (
+            <div class="mb-2 ml-4">
+              <time class="mr-8 font-mono text-neutral-500">
+                {post.data.publishDate}
+              </time>
+              <span>
+                <a
+                  href={`/archives/${post.id}`}
+                  class="font-serif font-semibold text-black"
+                >
+                  {post.data.title}
+                </a>
+              </span>
+            </div>
+          ))}
+        </div>
+      ))
+    }
   </main></Layout
 >
