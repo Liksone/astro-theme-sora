@@ -28,7 +28,7 @@
 
 2. 配置主题
 
-   修改配置文件 `theme.config.ts` 来自定义主题。详见[配置](https://github.com/Liksone/astro-theme-sora?tab=readme-ov-file#%E9%85%8D%E7%BD%AE)。
+   修改配置文件 `theme.config.ts` 来自定义主题。详见[配置](#配置)。
 
 3. 编辑文章
 
