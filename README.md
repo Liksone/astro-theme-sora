@@ -5,6 +5,7 @@
 <p>一款 Astro 博客主题</p>
 <p>Sora 意为「穹」，象征着无限的可能性和广阔的创造力</p>
 <p>喜欢这个主题，不妨点个 🌟Star！</p>
+<p><strong>简体中文</strong> | <a href="/README.en.md">English</a></p>
 </div>
 
 # 预览

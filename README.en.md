@@ -4,6 +4,7 @@
 </p>
 <p>A blog theme built with Astro</p>
 <p>Like this theme? Don't forget to give it a 🌟Star!</p>
+<p><strong>English</strong> | <a href="/README.md">简体中文</a></p>
 </div>
 
 # Preview
