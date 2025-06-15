@@ -254,6 +254,14 @@
     /* background-color: var(--color-bg-dark); */
   }
 
+  /* #post-content a > code */
+  a > code {
+    vertical-align: 0.15rem;
+    font-size: 0.7rem;
+    padding-top: 0px;
+    padding-bottom: 0px;
+  }
+
   pre {
     margin: 1rem 0;
     /* padding: 8px; */
