@@ -22,8 +22,8 @@ const { tag } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-  <div class="text-center font-serif text-2xl font-bold mb-8">
 <Layout title={tag + " | " + themeConfig.site.title} headerPage="标签">
+  <div class="mb-8 text-center font-serif text-2xl font-bold">
     <span class="icon-[mdi--tag-outline] iconify-inline"></span>
     <span>{tag}</span>
   </div>

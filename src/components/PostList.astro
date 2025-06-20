@@ -26,7 +26,7 @@ const { posts, page } = Astro.props as {
 
           <div class="post mx-4 my-4 flex flex-col gap-2">
             {/* 标题 */}
-            <div class="textc-primary font-serif font-semibold text-[1.2rem]">
+            <div class="textc-primary font-serif text-[1.2rem] font-semibold">
               {post.data.title}
             </div>
 
@@ -50,7 +50,7 @@ const { posts, page } = Astro.props as {
   {/* pagination */}
   {
     page && page.lastPage > 1 && (
-      <div class="text-[#333] mt-8 text-center">
+      <div class="mt-8 text-center text-[#333]">
         {page.url.prev && (
           <a href={page.url.prev} rel="prev">
             <span class="iconify-middle iconify-inline icon-[material-symbols--chevron-left-rounded]" />
