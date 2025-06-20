@@ -5,7 +5,11 @@ import Header from "@components/Header.astro";
 import "@styles/main.css";
 import { themeConfig } from "@config";
 
-const { title = themeConfig.site.title, header = true } = Astro.props;
+const {
+  title = themeConfig.site.title,
+  header = true,
+  headerPage,
+} = Astro.props;
 ---
 
 <html lang="zh-CN">
@@ -101,7 +105,7 @@ const { title = themeConfig.site.title, header = true } = Astro.props;
   </head>
 
   <body>
-    {header && <Header />}
+    {header && <Header page={headerPage} />}
 
     <slot />
 

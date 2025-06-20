@@ -26,8 +26,8 @@ const { category } = Astro.params;
 const { posts } = Astro.props;
 ---
 
-<Layout title={category + " | " + themeConfig.site.title}>
   <div class="text-center font-serif text-2xl font-bold mb-8">
+<Layout title={category + " | " + themeConfig.site.title} headerPage="分类">
     <span class="icon-[mdi--tag-outline] iconify-inline"></span>
     <span>{category}</span>
   </div>

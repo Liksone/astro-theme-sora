@@ -1,16 +1,30 @@
 ---
 import { themeConfig } from "@config";
+
+const { page } = Astro.props;
 ---
 
 <header>
   <nav
-    class="mb-[32px] flex border-b border-[#ddd] py-[14px] font-mono bg-white"
+    class="mb-10 flex items-center justify-between py-4 font-mono"
     id="navigation"
   >
-    <a href="/">{themeConfig.site.title}</a>
-    <div class="ml-auto flex flex-row gap-5">
-      {themeConfig.nav.map((item) => <a href={item.url}>{item.name}</a>)}
-      <span> | </span>
+    <a class="text-xl font-bold" href="/">{themeConfig.site.title}</a>
+    <div class="text-neutral flex gap-4">
+      {
+        themeConfig.nav.map((item) => {
+          if (item.name === page) {
+            return (
+              <a class="font-bold text-black" href={item.url}>
+                {item.name}
+              </a>
+            );
+          } else {
+            return <a href={item.url}>{item.name}</a>;
+          }
+        })
+      }
+      <!-- <span> | </span> -->
       <a href="javascript:SearchWidget.open()">
         <span class="icon-[fa-solid--search] iconify-inline"></span>
       </a>
@@ -18,11 +32,3 @@ import { themeConfig } from "@config";
     </div>
   </nav>
 </header>
-
-<style>
-  #navigation a {
-    color: black;
-    font-weight: bold;
-    text-decoration: none;
-  }
-</style>

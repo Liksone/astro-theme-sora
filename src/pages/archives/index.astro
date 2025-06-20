@@ -20,7 +20,7 @@ const years = Object.keys(groupedPosts)
   .toSorted((a, b) => b - a);
 ---
 
-<Layout title={"归档" + " | " + themeConfig.site.title}>
+<Layout title={"归档" + " | " + themeConfig.site.title} headerPage="归档">
   <main class="mx-auto max-w-[780px]">
     {
       years.map((year) => (
