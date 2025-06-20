@@ -4,7 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import remarkWordsAndReadingTime from "./src/scripts/remark-words-reading-time.ts";
 import rehypeExternalLinks from "./src/scripts/rehype-external-links.ts";
-
+import { rehypeHeadingIds } from "@astrojs/markdown-remark";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import sitemap from "@astrojs/sitemap";
 
 export default defineConfig({
@@ -18,7 +19,27 @@ export default defineConfig({
 
   markdown: {
     remarkPlugins: [remarkWordsAndReadingTime],
-    rehypePlugins: [rehypeExternalLinks],
+    rehypePlugins: [
+      rehypeExternalLinks,
+      rehypeHeadingIds, // or rehypeSlug
+      [
+        rehypeAutolinkHeadings,
+        {
+          test: ["h1", "h2", "h3", "h4"],
+          behavior: "append",
+          properties: {
+            class: "header-anchor",
+          },
+          content: {
+            type: "element",
+            tagName: "span",
+            properties: {
+              className: ["icon-[tdesign--link]", "iconify-inline"],
+            },
+          },
+        },
+      ],
+    ],
     shikiConfig: {
       // theme: "catppuccin-latte",
       theme: "one-light",

@@ -452,3 +452,16 @@
   transition: all 0.2s;
   border-radius: 0 0.8em 0.8em 0;
 }
+
+.header-anchor {
+  font-size: 80%;
+  margin-left: 0.5rem;
+  background: none;
+  visibility: hidden;
+  /* opacity: 0; */
+}
+
+:is(h1, h2, h3, h4):hover .header-anchor {
+  visibility: visible;
+  /* opacity: 0.7; */
+}
