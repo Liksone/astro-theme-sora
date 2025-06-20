@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/markdown-remark": "^6.3.2",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.1",
     "@tailwindcss/vite": "^4.1.8",
@@ -20,6 +21,7 @@
     "mdast-util-from-markdown": "^2.0.2",
     "mdast-util-to-string": "^4.0.0",
     "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^7.1.0",
     "remark": "^15.0.1",
     "remark-mdc": "^3.6.0",
     "remark-retext": "^6.0.1",
@@ -36,6 +38,7 @@
     "dayjs": "^1.11.13",
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
+    "prettier-plugin-tailwindcss": "^0.6.12",
     "typescript": "^5.8.3"
   }
 }
