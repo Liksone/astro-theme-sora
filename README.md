@@ -2,155 +2,151 @@
 <p>
 <img src="./docs/logo.svg" alt="logo" height="46" />
 </p>
-<p>一款 Astro 博客主题</p>
-<p>Sora 意为「穹」，象征着无限的可能性和广阔的创造力</p>
-<p>喜欢这个主题，不妨点个 🌟Star！</p>
-<p><strong>简体中文</strong> | <a href="/README.en.md">English</a></p>
+<p>A blog theme built with Astro</p>
+<p>Like this theme? Don't forget to give it a 🌟Star!</p>
+<p><strong>English</strong> | <a href="/README.zh.md">简体中文</a></p>
 </div>
 
-# 预览
+# Preview
 
 [My Blog](https://blog.liks.space)
 
-## 谁在使用
+## Who is using
 
-欢迎提一个 [Issue](https://github.com/Liksone/astro-theme-sora/issues/new?template=addWebsite.yml) 来展示自己的网站。
+Welcome to open an [Issue](https://github.com/Liksone/astro-theme-sora/issues/new?template=addWebsite.yml) to show your website.
 
-# 开始
+# Getting Started
 
-1. 安装主题
+1. Install the theme
 
-   - 安装 [pnpm](https://pnpm.io/installation)
+   - Install [pnpm](https://pnpm.io/installation)
    - ```bash
      pnpm create astro@latest --template Liksone/astro-theme-sora
      ```
+   - Enter the project directory and run `pnpm dev` to start the project
 
-   - 进入项目目录，运行 `pnpm dev` 启动项目
+2. Configure the theme
 
-2. 配置主题
+   Edit the configuration file `theme.config.ts` to customize the theme. See [Configuration](#Configuration) for details.
 
-   修改配置文件 `theme.config.ts` 来自定义主题。详见[配置](#配置)。
+3. Edit posts
 
-3. 编辑文章
+   Edit in the `src/content/` directory. Markdown format is supported.
 
-   在 `src/content/` 目录中编辑，支持 Markdown 格式。
+4. Deploy the website
 
-4. 部署网站
+   Run `pnpm build` to build the website. The output will be in the `dist/` directory. You can run `pnpm preview` to preview the website locally.
 
-   运行 `pnpm build` 构建网站，构建产物在 `dist/` 目录。可运行 `pnpm preview` 在本地预览网站。
+   Deploy the website to your server, or refer to the [Astro documentation](https://docs.astro.build/en/guides/deploy/) to deploy it to Vercel, Netlify, GitHub Pages, or other platforms.
 
-   自行部署网站至服务器，或者参考 [Astro 文档](https://docs.astro.build/en/guides/deploy/)部署网站至 Vercel、Netlify、GitHub Pages 等托管平台。
+# Configuration
 
-<!-- # 文档 -->
+The configuration file is `theme.config.ts`.
 
-# 配置
-
-配置文件为 `theme.config.ts`。
-
-## 站点信息
+## Site Information
 
 ```typescript
 site: {
-  // 网站地址
+  // website address
   url: "https://blog.liks.space",
-  // 网站标题
+  // website title
   title: "Sora",
-  // 站长名
+  // author name
   author: "Liks",
-  // 网站简介
+  // website description
   description: "A blog theme built with Astro",
-  // 网站图标
-  // 支持 SVG、PNG、ICO 格式
-  // 位于 public/ 目录内的本地文件路径
+  // website favicon
+  // supports SVG, PNG, ICO formats
+  // local file path located in the public/ directory
   favicon: "/images/favicon.ico",
 }
 ```
 
-## 全局设置
+## Global Settings
 
 ```typescript
 global: {
-  // 头像
-  // 位于 src/images/ 目录内的本地文件路径
+  // avatar
+  // local file path located in the src/images/ directory
   avatar: "avatar.jpg",
-  // 启用 RSS
+  // enable RSS
   rss: true,
-  // 启用多语言支持（开发中）
+  // enable i18n support (still in development)
   i18n: true,
 }
 ```
 
-## 导航栏
+## Navigation Bar
 
 ```typescript
 nav: [
   {
-    // 页面名
-    name: "归档",
-    // 页面地址
+    // page name
+    name: "Archives",
+    // page address
     url: "/archives",
   },
   {
-    name: "分类",
+    name: "Categories",
     url: "/categories",
   },
   {
-    name: "标签",
+    name: "Tags",
     url: "/tags",
   },
   {
-    name: "关于",
+    name: "About",
     url: "/about",
   },
   ...
 ];
 ```
 
-## 页脚
+## Footer
 
 ```typescript
 footer: {
-  // 版权
+  // copyright
   copyright: {
-    // 版权所有者
+    // copyright owner
     owner: "Liks",
-    // 建站时间
+    // site establishment time
     time: "2024 - 2025",
   },
-  // 备案（中国特供）
+  // filing (China-specific)
   beian: {
-    // ICP 备案
+    // ICP filing
     icp: {
-      // 启用
+      // enable
       enabled: false,
-      // 备案号
+      // filing number
       number: "京 ICP 备 12345678 号",
     },
-    // 公安备案
+    // police filing
     police: {
-      // 启用
+      // enable
       enabled: false,
-      // 备案号
+      // filing number
       number: "京公网安备 12345678901234 号",
-      // 备案网址
+      // filing URL
       url: "https://beian.mps.gov.cn/webcode=?",
     },
   },
 }
 ```
 
-## 首页
+## Index
 
 ```typescript
 index: {
-  // 社交媒体
+  // social media
   social: [
     {
-      // 名称
+      // name
       name: "GitHub",
-      // 启用
+      // enable
       enabled: true,
-      // 网址
+      // URL
       url: "https://github.com/Liksone",
     },
     ...
@@ -158,75 +154,75 @@ index: {
 }
 ```
 
-支持 BiliBili、Email、Facebook、GitHub、Instagram、QQ、Telegram、Twitter/X、YouTube、微博、小红书、知乎。
+Supports BiliBili, Email, Facebook, GitHub, Instagram, QQ, Telegram, Twitter/X, YouTube, Weibo, Xiaohongshu, and Zhihu.
 
-## 文章页
+## Post
 
 ```typescript
 post: {
-  // 版权许可
+  // copyright license
   copyright: {
-    // CC 许可
+    // CC license
     CCLicense: {
       BY: true,
       NC: true,
       SA: true,
       ND: false,
     },
-    // 许可网址
+    // license URL
     url: "https://creativecommons.org/licenses/by-nc-sa/4.0",
   },
 }
 ```
 
-## 赞助
+## Sponsorship
 
 ```typescript
 sponsor: {
-  // 启用
+  // enable
   enabled: true,
-  // 支付宝二维码
+  // Alipay QR code
   alipay: {
-    // 启用
+    // enable
     enabled: true,
-    // 位于 src/images/ 目录内的本地文件路径
+    // local file path located in the src/images/ directory
     image: "alipay.png",
   },
-  // 微信二维码
+  // WeChat QR code
   wechat: {
     enabled: false,
   },
-  // 显示赞助名单
+  // display sponsor list
   list: true,
 }
 ```
 
-## 评论
+## Comment
 
 ```typescript
 comment: {
-  // 启用
+  // enable
   enabled: false,
   // Artalk - https://artalk.js.org
   artalk: {
     enabled: false,
-    // 后端服务器地址
+    // backend server address
     server: "https://artalk.example.com",
-    // 站点名
+    // site name
     site: "Sora",
   },
 }
 ```
 
-## 工具
+## Tools
 
 ```typescript
 tools: {
   // Umami - https://umami.is
   umami: {
-    // 启用
+    // enable
     enabled: false,
-    // 服务器地址
+    // server address
     src: "https://cloud.umami.is",
     // data-website-id
     websiteID: "c26d92e7-d859-43be-991c-5a5dd0503eb9",
@@ -234,15 +230,15 @@ tools: {
 }
 ```
 
-# 许可
+# License
 
 [GNU General Public License v3.0](https://github.com/Liksone/astro-theme-sora/blob/main/LICENSE)
 
-# 致谢
+# Acknowledgments
 
 - [Pedro-null/halo-theme-hingle2.0](https://github.com/Pedro-null/halo-theme-hingle2.0)
 - [Aziteee/halo-theme-lapis](https://github.com/Aziteee/halo-theme-lapis)
-- [纸鹿摸鱼处](https://blog.zhilu.cyou/)
+- [Zhilu's Blog](https://blog.zhilu.cyou/)
 - [HowieHz/halo-theme-higan-hz](https://github.com/HowieHz/halo-theme-higan-hz)
 - [saicaca/fuwari](https://github.com/saicaca/fuwari)
 - [radishzzz/astro-theme-retypeset](https://github.com/radishzzz/astro-theme-retypeset)
