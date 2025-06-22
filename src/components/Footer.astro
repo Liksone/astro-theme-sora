@@ -11,9 +11,9 @@ const copyrightOwner = themeConfig.footer.copyright.owner; // || themeConfig.sit
   <div class="flex flex-col items-center gap-1">
     <div>
       ©
-      <span>{copyrightTime}</span>
-      ·
       <span>{copyrightOwner}</span>
+      ·
+      <span>{copyrightTime}</span>
     </div>
 
     {
@@ -67,3 +67,14 @@ const copyrightOwner = themeConfig.footer.copyright.owner; // || themeConfig.sit
     </div>
   </div>
 </footer>
+
+<style>
+  a {
+    /* color: var(--color-neutral); */
+    color: var(--color-primary);
+  }
+  /* a:hover { */
+  /* color: black; */
+  /* text-decoration: underline; */
+  /* } */
+</style>

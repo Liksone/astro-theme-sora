@@ -227,10 +227,6 @@
     border-radius: 0.3rem;
   }
 
-  footer a {
-    color: var(--color-primary);
-  }
-
   /* 引用 */
   blockquote {
     color: var(--color-neutral-dark);
