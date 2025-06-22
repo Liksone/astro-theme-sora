@@ -112,10 +112,10 @@ nav: [
 footer: {
   // 版权
   copyright: {
-    // 建站时间
-    time: "2024 - 2025",
     // 版权所有者
     owner: "Liks",
+    // 建站时间
+    time: "2024 - 2025",
   },
   // 备案（中国特供）
   beian: {
@@ -234,7 +234,6 @@ tools: {
 }
 ```
 
-
 # 许可
 
 [GNU General Public License v3.0](https://github.com/Liksone/astro-theme-sora/blob/main/LICENSE)
@@ -248,4 +247,3 @@ tools: {
 - [saicaca/fuwari](https://github.com/saicaca/fuwari)
 - [radishzzz/astro-theme-retypeset](https://github.com/radishzzz/astro-theme-retypeset)
 - [EveSunMaple/Frosti](https://github.com/EveSunMaple/Frosti)
-

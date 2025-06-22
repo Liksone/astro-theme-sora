@@ -31,8 +31,8 @@ export const themeConfig: ThemeConfig = {
   ],
   footer: {
     copyright: {
-      time: "2024 - 2025",
       owner: "Liks",
+      time: "2024 - 2025",
     },
     beian: {
       icp: {
@@ -155,8 +155,8 @@ interface ThemeConfig {
   nav: { name: string; url: string }[];
   footer: {
     copyright: {
-      time: string;
       owner: string;
+      time: string;
     };
     beian: {
       icp: {

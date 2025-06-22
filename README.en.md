@@ -108,10 +108,10 @@ nav: [
 footer: {
   // copyright
   copyright: {
-    // site establishment time
-    time: "2024 - 2025",
     // copyright owner
     owner: "Liks",
+    // site establishment time
+    time: "2024 - 2025",
   },
   // filing (China-specific)
   beian: {
