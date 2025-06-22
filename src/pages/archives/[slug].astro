@@ -383,7 +383,7 @@ function generateTimeTips() {
 </script>
 
 <style>
-  @reference "@styles/main.css";
+  @reference "tailwindcss";
 
   /* 时效性提示 */
   .post-time-tips {
@@ -413,7 +413,8 @@ function generateTimeTips() {
   }
 
   #license .license-item {
-    @apply text-neutral text-sm;
+    @apply text-sm;
+    color: var(--color-neutral);
   }
 
   /* 目录 */
