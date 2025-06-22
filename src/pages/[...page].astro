@@ -33,7 +33,7 @@ const iconMap: Record<string, string> = {
 <Layout header={false}>
   <header>
     <div
-      class="mt-20 mb-20 flex flex-col items-center justify-center gap-8 sm:flex-row sm:gap-14"
+      class="mt-20 mb-16 flex flex-col items-center justify-center gap-8 sm:flex-row sm:gap-14"
     >
       <Image
         src={getImportImage(themeConfig.global.avatar)}
@@ -44,7 +44,7 @@ const iconMap: Record<string, string> = {
       <div class="flex flex-col items-center gap-5 font-mono">
         <div class="text-4xl">{themeConfig.site.title}</div>
 
-        {/* 社交媒体 */}
+        {/* social media */}
         <div class="flex justify-center gap-2">
           {
             themeConfig.index.social
@@ -65,8 +65,8 @@ const iconMap: Record<string, string> = {
           }
         </div>
 
-        {/* 导航栏 */}
-        <nav class="flex justify-center gap-3">
+        {/* navigation bar */}
+        <nav class="flex justify-center gap-4">
           {
             themeConfig.nav.map((item) => (
               <a class="card-invert" href={item.url}>
@@ -74,8 +74,8 @@ const iconMap: Record<string, string> = {
               </a>
             ))
           }
-            <span class="iconify icon-[fa-solid--search]"></span>
           <a class="card-invert" href="javascript:SearchWidget.open()">
+            <span class="iconify-inline icon-[fa-solid--search]"></span>
           </a>
         </nav>
       </div>
