@@ -159,7 +159,7 @@ function generateTimeTips() {
       <!-- </div> -->
 
       <!-- 时效性提示 -->
-      <div class="card post-time-tips text-neutral my-4 text-sm">
+      <div class="card-bg card-lg post-time-tips text-neutral my-4 text-sm">
         {generateTimeTips()}
       </div>
 
@@ -194,7 +194,7 @@ function generateTimeTips() {
     <!-- <hr class="my-8 border-t-4 text-black opacity-10" /> -->
 
     {/* 版权许可协议 */}
-    <div class="card mt-14 px-6 py-4" id="license">
+    <div class="card-bg card-lg mt-14 px-6" id="license">
       <div id="license-icon"></div>
 
       <div>{post.data.title}</div>
@@ -263,7 +263,10 @@ function generateTimeTips() {
             <span class="flex gap-2">
               {post.data.categories &&
                 post.data.categories.map((category) => (
-                  <a class="card-small" href={getCategoryUrl(category)}>
+                  <a
+                    class="card-shadow card-sm"
+                    href={getCategoryUrl(category)}
+                  >
                     <span class="icon-[material-symbols--folder-outline-rounded] iconify-inline" />
                     <span>{category}</span>
                   </a>
@@ -273,7 +276,7 @@ function generateTimeTips() {
             <span class="flex gap-2">
               {post.data.tags &&
                 post.data.tags.map((tag) => (
-                  <a class="card-small" href={getTagUrl(tag)}>
+                  <a class="card-shadow card-sm" href={getTagUrl(tag)}>
                     <span class="icon-[mdi--tag-outline] iconify-inline" />
                     <span>{tag}</span>
                   </a>

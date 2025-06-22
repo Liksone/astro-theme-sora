@@ -16,7 +16,7 @@ const tags = [...new Set(posts.map((post) => post.data.tags || []).flat())];
           post.data.tags?.includes(tag),
         );
         return (
-          <a class="card-small" href={getTagUrl(tag)}>
+          <a class="card-shadow-hover card-sm" href={getTagUrl(tag)}>
             <span class="icon-[mdi--tag-outline] iconify-inline" />
             {tag}
             <span class="text-neutral text-sm">{filteredPosts.length}</span>

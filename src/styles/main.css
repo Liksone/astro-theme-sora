@@ -360,29 +360,51 @@
 }
 
 @layer components {
-  /* 卡片 */
-  .card {
-    @apply card-util;
-    box-shadow: 0 0 8px var(--color-shadow);
-    padding: 1rem;
+  /* Card */
+  .card-bg {
+    background-color: var(--color-bg-light);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
   }
-
-  .card-small {
-    @apply card-util;
-    box-shadow: 0 0 4px var(--color-shadow);
-    padding: 0.4rem 0.5rem;
-    /* animation: float-in 0.5s 0.05s backwards; */
-    /* transition: all 0.2s; */
+  .card-shadow,
+  .card-shadow-hover {
     background-color: white;
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 0 0.25rem 0 var(--color-shadow);
+  }
+  .card-shadow-hover {
+    @apply transition duration-300;
+  }
+  .card-shadow-hover:hover {
+    box-shadow: 0 0 1rem 0 var(--color-shadow);
+    transform: translateY(-4px);
+  }
+  /* .card-border {
+    @apply transition duration-300;
+    background-color: white;
+    border: 1px solid var(--color-neutral-250);
+  }
+  .card-border:hover {
+    background-color: var(--color-bg-dark);
+    border-color: transparent;
+  } */
+
+  .card-sm {
+    padding: 0.5rem;
+  }
+  .card-lg {
+    padding: 1rem;
   }
 }
 
-@utility card-util {
+/* Utility */
+/* @utility card-util {
+  background-color: var(--color-bg-light);
   border-width: 1px;
   border-radius: var(--size-border-radius);
   border-color: var(--color-border-light);
-  background-color: var(--color-bg-light);
-}
+} */
 
 /* icon  */
 /* iconify 样式 */
@@ -403,53 +425,6 @@
 .iconify-huge {
   width: 1.8rem;
   height: 1.8rem;
-}
-
-/* 首页文章卡片 */
-
-.index-post-card {
-  animation: float-in 0.5s 0.05s backwards;
-  border-radius: 0.8rem;
-  background-color: white;
-  box-shadow: 0 0.1em 0.2em var(--color-shadow);
-  transition: all 0.2s;
-  position: relative;
-}
-
-@keyframes float-in {
-  0% {
-    opacity: 0;
-    transform: translateY(10%);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.index-post-card > .post {
-  /* border-radius: 0.8rem; */
-  position: relative;
-}
-
-.index-post-card > .cover + .post {
-  width: 60%;
-}
-
-.index-post-card > .cover {
-  height: 100%;
-  width: min(320px, 50%);
-  object-fit: cover;
-  margin: 0;
-  mask: linear-gradient(90deg, transparent, #fff 50%);
-  /* filter: none; */
-  opacity: 0.8;
-  position: absolute;
-  top: 0;
-  right: 0;
-  transition: all 0.2s;
-  border-radius: 0 0.8em 0.8em 0;
 }
 
 .header-anchor {

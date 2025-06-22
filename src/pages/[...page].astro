@@ -69,13 +69,13 @@ const iconMap: Record<string, string> = {
         <nav class="flex justify-center gap-3">
           {
             themeConfig.nav.map((item) => (
-              <a class="card-small p-2 " href={item.url}>
+              <a class="card-invert" href={item.url}>
                 {item.name}
               </a>
             ))
           }
-          <a class="card-small p-2" href="javascript:SearchWidget.open()">
             <span class="iconify icon-[fa-solid--search]"></span>
+          <a class="card-invert" href="javascript:SearchWidget.open()">
           </a>
         </nav>
       </div>
@@ -83,6 +83,19 @@ const iconMap: Record<string, string> = {
   </header>
 
   <PostList posts={posts} page={page} />
-
-  <style></style>
 </Layout>
+
+<style>
+  @reference "tailwindcss";
+
+  .card-invert {
+    @apply transition duration-300;
+    background-color: var(--color-bg-dark);
+    border-radius: var(--radius-sm);
+    padding: 0.4rem 0.5rem;
+  }
+  .card-invert:hover {
+    background-color: var(--color-neutral-500);
+    color: white;
+  }
+</style>

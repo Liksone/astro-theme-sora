@@ -18,7 +18,7 @@ const categories = [
           post.data.categories?.includes(category),
         );
         return (
-          <a class="card-small" href={getCategoryUrl(category)}>
+          <a class="card-shadow-hover card-sm" href={getCategoryUrl(category)}>
             <span class="icon-[mdi--tag-outline] iconify-inline" />
             {category}
             <span class="text-neutral text-sm">{filteredPosts.length}</span>
