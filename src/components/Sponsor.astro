@@ -4,7 +4,7 @@ import { Image } from "astro:assets";
 import { getImportImage } from "@scripts/image-utils";
 ---
 
-<button class="card-small relative cursor-pointer" id="sponsor-button">
+<button class="btn relative" id="sponsor-button">
   <span class="iconify-inline icon-[ph--coffee-fill]"></span>
   <span>赏</span>
 </button>
@@ -18,7 +18,7 @@ import { getImportImage } from "@scripts/image-utils";
       themeConfig.sponsor.alipay.enabled && (
         <div>
           <Image
-            class="w-32"
+            class="w-30"
             alt="支付宝"
             src={getImportImage(themeConfig.sponsor.alipay.image)}
           />
@@ -33,7 +33,7 @@ import { getImportImage } from "@scripts/image-utils";
       themeConfig.sponsor.wechat.enabled && (
         <div>
           <Image
-            class="w-32"
+            class="w-30"
             alt="微信"
             src={getImportImage(themeConfig.sponsor.wechat.image)}
           />
@@ -84,3 +84,14 @@ import { getImportImage } from "@scripts/image-utils";
     sponsor();
   });
 </script>
+
+<style>
+  @reference "tailwindcss";
+
+  .btn {
+    @apply rounded-lg px-2 py-1.5;
+    border: 1px solid var(--color-border-light);
+    box-shadow: 0 0 0.25rem 0 var(--color-shadow);
+    cursor: pointer;
+  }
+</style>
