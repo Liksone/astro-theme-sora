@@ -99,11 +99,10 @@
   --color-bg-dark: var(--color-neutral-150);
   /* darker */
   /* --color-bg2: var(--color-neutral-200); */
-  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-shadow: var(--color-neutral-250);
   --color-border-light: var(--color-neutral-150);
 
   --breakpoint-sm: 480px;
-  --size-border-radius: 0.5rem;
 }
 
 /*基本样式*/
