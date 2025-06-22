@@ -20,15 +20,33 @@ const { page } = Astro.props;
               </a>
             );
           } else {
-            return <a href={item.url}>{item.name}</a>;
+            return (
+              <a class="hover" href={item.url}>
+                {item.name}
+              </a>
+            );
           }
         })
       }
       <!-- <span> | </span> -->
-      <a href="javascript:SearchWidget.open()">
+      <a class="hover" href="javascript:SearchWidget.open()">
         <span class="icon-[fa-solid--search] iconify-inline"></span>
       </a>
-      {themeConfig.global.i18n && <a href="/en">EN</a>}
+      {
+        themeConfig.global.i18n && (
+          <a class="hover" href="/en">
+            EN
+          </a>
+        )
+      }
     </div>
   </nav>
 </header>
+
+<style>
+  @reference "tailwindcss";
+
+  .hover {
+    @apply transition duration-300 hover:font-bold hover:text-black;
+  }
+</style>
