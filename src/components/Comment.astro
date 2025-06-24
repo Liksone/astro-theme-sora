@@ -1,30 +1,29 @@
 ---
 import { themeConfig } from "@config";
-// const server = themeConfig.comment.artalk.server;
-// const site = themeConfig.comment.artalk.site;
+const server = themeConfig.comment.artalk.server;
+const site = themeConfig.comment.artalk.site;
 ---
 
 <div class="mt-16" id="artalk"></div>
 
-{
-  /*
+<!-- <link -->
+<!--   rel="stylesheet" -->
+<!--   href={themeConfig.comment.artalk.server + "/dist/Artalk.css"} -->
+<!-- /> -->
+<!-- <script is:inline src={themeConfig.comment.artalk.server + "/dist/Artalk.js"} -->
+<!-- ></script> -->
 <link
-  href={themeConfig.comment.artalk.server + "/dist/Artalk.css"}
   rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.9.1/Artalk.css"
 />
+<script
+  is:inline
+  src="https://cdnjs.cloudflare.com/ajax/libs/artalk/2.9.1/Artalk.js"></script>
 
-<script src={themeConfig.comment.artalk.server + "/dist/Artalk.js"}></script>
- */
-}
-
-<script>
-  import "artalk/Artalk.css";
-  import Artalk from "artalk";
-  import { themeConfig } from "@config";
-
+<script is:inline define:vars={{ server, site }}>
   Artalk.init({
     el: "#artalk",
-    server: themeConfig.comment.artalk.server,
-    site: themeConfig.comment.artalk.site,
+    server: server,
+    site: site,
   });
 </script>
