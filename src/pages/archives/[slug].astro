@@ -22,16 +22,6 @@ export const getStaticPaths = (async () => {
 const { post } = Astro.props;
 const { Content, headings, remarkPluginFrontmatter } = await render(post);
 
-// 动态导入图片
-// const images = import.meta.glob<{ default: ImageMetadata }>("@images/*");
-//
-// const alipay = themeConfig.sponsor.alipay.enabled
-//   ? await images[path.join("/src/images", themeConfig.sponsor.alipay.image)]()
-//   : null;
-// const wechat = themeConfig.sponsor.wechat.enabled
-//   ? await images[path.join("/src/images", themeConfig.sponsor.wechat.image)]()
-//   : undefined;
-
 // 时效性提示
 function generateTimeTips() {
   const date = post.data.updateDate ?? dayjs(post.data.publishDate);
