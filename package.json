@@ -6,15 +6,19 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro build && astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "init": "esno scripts/init.ts"
   },
   "dependencies": {
     "@astrojs/markdown-remark": "^6.3.2",
     "@astrojs/rss": "^4.0.12",
     "@astrojs/sitemap": "^3.4.1",
     "@tailwindcss/vite": "^4.1.8",
+    "@types/fs-extra": "^11.0.4",
     "artalk": "^2.9.1",
     "astro": "^5.9.2",
+    "esno": "^4.8.0",
+    "fs-extra": "^11.3.0",
     "hast-util-from-html": "^2.0.3",
     "hast-util-to-string": "^3.0.1",
     "hast-util-to-text": "^4.0.2",
@@ -28,7 +32,8 @@
     "sharp": "^0.34.2",
     "strip-markdown": "^6.0.0",
     "tailwindcss": "^4.1.8",
-    "unist-util-visit": "^5.0.0"
+    "unist-util-visit": "^5.0.0",
+    "yaml": "^2.8.0"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.347",

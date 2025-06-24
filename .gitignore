@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # ----------
 .vscode
+src/content/
+src/config/
+public/favicon/

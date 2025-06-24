@@ -1,11 +1,9 @@
 ---
 title: Example
 # description:
-publishDate: 2025-05-01
+publishDate: 2025-01-01
 # categories:
 # tags:
 ---
 
 This is an example.
-
-![](./astro.webp)

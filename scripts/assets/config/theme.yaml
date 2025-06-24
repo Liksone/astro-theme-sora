@@ -1,0 +1,86 @@
+site:
+  url: "https://example.com"
+  title: "Sora"
+  author: "Liks"
+  description: "A blog theme built with Astro"
+  favicon: "favicon.ico"
+global:
+  avatar: "avatar.jpg"
+  rss: true
+  i18n: false
+nav:
+  - name: "归档"
+    url: "/archives"
+  - name: "分类"
+    url: "/categories"
+  - name: "标签"
+    url: "/tags"
+  - name: "关于"
+    url: "/about"
+footer:
+  copyright:
+    owner: "Liks"
+    time: "2024 - 2025"
+  beian:
+    icp:
+      enabled: false
+      number: "京 ICP 备 12345678 号"
+    police:
+      enabled: false
+      number: "京公网安备 12345678901234 号"
+      url: "https://beian.mps.gov.cn/webcode=?"
+index:
+  social:
+    - name: "BiliBili"
+      enabled: false
+    - name: "Email"
+      enabled: true
+      url: "mailto:example@xxx.com"
+    - name: "Facebook"
+      enabled: false
+    - name: "GitHub"
+      enabled: true
+      url: "https://github.com/Liksone"
+    - name: "Instagram"
+      enabled: false
+    - name: "QQ"
+      enabled: false
+    - name: "Telegram"
+      enabled: false
+    - name: "Twitter/X"
+      enabled: false
+    - name: "YouTube"
+      enabled: false
+    - name: "微博"
+      enabled: false
+    - name: "小红书"
+      enabled: false
+    - name: "知乎"
+      enabled: false
+post:
+  copyright:
+    CCLicense:
+      BY: true
+      NC: true
+      SA: true
+      ND: false
+    url: "https://creativecommons.org/licenses/by-nc-sa/4.0"
+sponsor:
+  enabled: true
+  alipay:
+    enabled: true
+    image: "alipay.png"
+  wechat:
+    enabled: false
+  list: true
+comment:
+  enabled: false
+  artalk:
+    enabled: false
+    server: "https://artalk.example.com"
+    site: "Sora"
+tools:
+  umami:
+    enabled: false
+    src: "https://cloud.umami.is"
+    websiteID: "c26d92e7-d859-43be-991c-5a5dd0503eb9"
