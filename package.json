@@ -39,7 +39,6 @@
     "@iconify/json": "^2.2.347",
     "@iconify/tailwind4": "^1.0.6",
     "@types/hast": "^3.0.4",
-    "astro-icon": "^1.1.5",
     "dayjs": "^1.11.13",
     "prettier": "3.5.3",
     "prettier-plugin-astro": "0.14.1",
