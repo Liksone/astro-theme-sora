@@ -6,6 +6,7 @@ import rehypeExternalLinks from "./src/scripts/rehype-external-links.ts";
 import { rehypeHeadingIds } from "@astrojs/markdown-remark";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import sitemap from "@astrojs/sitemap";
+import updateConfig from "./src/scripts/integration.ts";
 
 export default defineConfig({
   site: themeConfig.site.url,
@@ -14,7 +15,7 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
 
-  integrations: [sitemap()],
+  integrations: [updateConfig(), sitemap()],
 
   markdown: {
     remarkPlugins: [remarkWordsAndReadingTime],
