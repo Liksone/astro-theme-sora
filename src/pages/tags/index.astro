@@ -8,7 +8,7 @@ const posts = await getCollection("blog");
 const tags = [...new Set(posts.map((post) => post.data.tags || []).flat())];
 ---
 
-<Layout title={"标签" + " | " + themeConfig.site.title} headerPage="标签">
+<Layout title="标签" headerPage="标签">
   <main class="flex flex-wrap gap-4">
     {
       tags.map((tag) => {
