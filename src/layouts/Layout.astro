@@ -4,11 +4,7 @@ import Header from "@components/Header.astro";
 import "@styles/main.css";
 import { themeConfig } from "@config";
 
-const {
-  title = themeConfig.site.title,
-  header = true,
-  headerPage,
-} = Astro.props;
+const { title = false, header = true, headerPage } = Astro.props;
 ---
 
 <html lang="zh-CN">
@@ -25,7 +21,9 @@ const {
     <meta name="description" content={themeConfig.site.description} />
     <meta name="generator" content={Astro.generator} />
 
-    <title>{title + " | " + themeConfig.site.title}</title>
+    <title>
+      {title ? title + " | " + themeConfig.site.title : themeConfig.site.title}
+    </title>
 
     {/* Favicon */}
     {
