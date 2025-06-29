@@ -1,11 +1,7 @@
-// 导入工具函数
 import { z, defineCollection } from "astro:content";
-// 导入加载器
 import { glob } from "astro/loaders";
-
 import dayjs from "dayjs";
 
-// 为每个集合定义一个 loader 和 schema
 const blog = defineCollection({
   // loader: glob({ pattern: "**/[^_]*.{md,mdx}", base: "src/content" }),
   loader: glob({
@@ -38,5 +34,4 @@ const blog = defineCollection({
     }),
 });
 
-// 导出一个 collections 对象来注册集合们
 export const collections = { blog };
