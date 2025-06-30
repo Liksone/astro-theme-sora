@@ -387,6 +387,9 @@
   } */
 
   .card-sm {
+    padding: 0.4rem 0.5rem;
+  }
+  .card-md {
     padding: 0.5rem;
   }
   .card-lg {
