@@ -55,7 +55,7 @@ const { posts, page } = Astro.props as {
           </a>
         )}
         <span>
-          Page {page.currentPage} of {page.lastPage}
+          {page.currentPage} / {page.lastPage}
         </span>
         {page.url.next && (
           <a href={page.url.next} rel="next">
