@@ -54,7 +54,7 @@ function generateTimeTips() {
 ---
 
 <Layout title={post.data.title}>
-  <main class="mx-auto w-full max-w-xl lg:max-w-3xl 2xl:max-w-4xl">
+  <main class="mx-auto w-full max-w-2xl lg:max-w-3xl 2xl:max-w-4xl">
     <article>
       {
         /* 封面图 */
@@ -66,12 +66,14 @@ function generateTimeTips() {
       }
 
       <!-- 标题 -->
-      <div class="text-center font-serif text-[2rem] font-bold">
+      <div class="text-center font-serif text-3xl font-bold">
         {post.data.title}
       </div>
 
       {/* 文章元信息 */}
-      <div class="mt-4 flex flex-wrap justify-center gap-3 font-mono text-sm">
+      <div
+        class="text-neutral mt-4 flex flex-wrap justify-center gap-3 text-sm"
+      >
         <!-- 发布时间 -->
         <span>
           <span class="icon-[bx--calendar-alt] iconify-inline"></span>
@@ -114,20 +116,26 @@ function generateTimeTips() {
             </span>
           )
         }
-        {/* 字数统计 */}
+        {
+          /* 字数统计
         <span>
           <span class="icon-[icon-park-outline--word] iconify-inline"></span>
           <span>
             {remarkPluginFrontmatter.words}
           </span>
         </span>
-        {/* 预计阅读时间 */}
+	*/
+        }
+        {
+          /* 预计阅读时间 
         <span>
           <span class="icon-[mingcute--time-line] iconify-inline"></span>
           <span>
             {remarkPluginFrontmatter.readingTime}
           </span>
         </span>
+	*/
+        }
         {
           /*
       浏览量
@@ -148,12 +156,16 @@ function generateTimeTips() {
       <!--   </span> -->
       <!-- </div> -->
 
-      <!-- 时效性提示 -->
+      {
+        /* 
+      时效性提示
       <div class="card-bg card-lg post-time-tips text-neutral my-4 text-sm">
         {generateTimeTips()}
       </div>
+      */
+      }
 
-      <section class="relative">
+      <section class="relative mt-8 mb-10">
         <div id="post-content">
           <Content />
         </div>
@@ -181,10 +193,8 @@ function generateTimeTips() {
       </section>
     </article>
 
-    <!-- <hr class="my-8 border-t-4 text-black opacity-10" /> -->
-
     {/* 版权许可协议 */}
-    <div class="card-bg card-lg mt-14 px-6" id="license">
+    <div class="card-bg card-lg px-6" id="license">
       <div id="license-icon"></div>
 
       <div>{post.data.title}</div>

@@ -142,14 +142,12 @@
   h2,
   h3,
   h4 {
-    margin: 1rem 0;
-    /* color: var(--color-primary); */
+    margin: 1.5rem 0 1rem;
     font-weight: bold;
     font-family: var(--font-serif);
-    padding-bottom: 8px;
-    border-bottom: 1px solid var(--color-neutral-100);
+    /* padding-bottom: 0.25rem; */
+    /* border-bottom: 1px solid var(--color-neutral-100); */
   }
-
   h1 {
     font-size: 1.75rem;
   }
@@ -157,10 +155,10 @@
     font-size: 1.5rem;
   }
   h3 {
-    font-size: 1.35rem;
+    font-size: 1.25rem;
   }
   h4 {
-    font-size: 1.2rem;
+    font-size: 1.125rem;
   }
 
   /* 段落 */
@@ -351,7 +349,7 @@
   }
 
   strong {
-    color: var(--color-primary);
+    /* color: var(--color-primary); */
   }
 }
 
