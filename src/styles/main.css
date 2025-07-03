@@ -105,10 +105,7 @@
   --breakpoint-sm: 480px;
 }
 
-/*基本样式*/
-
 @layer base {
-  /* 全局默认设置 */
   html,
   body {
     margin: 0;
@@ -126,7 +123,7 @@
 
   body {
     font-family: var(--font-sans-serif);
-    /* color: #222; */
+    /* color: #333; */
     /* background-color: #f6f7f8; */
     /* background-color: var(--color-gray-50); */
     /* background-color: var(--color-zinc-50); */
@@ -137,7 +134,6 @@
     padding: 0 32px;
   }
 
-  /* 标题 */
   h1,
   h2,
   h3,
@@ -161,7 +157,6 @@
     font-size: 1.125rem;
   }
 
-  /* 段落 */
   p {
     font-size: 1rem;
     margin: 1rem 0;
@@ -169,7 +164,6 @@
     line-height: 1.8;
   }
 
-  /* 列表 */
   ul,
   ol {
     /*margin: 0.5rem 0;*/
@@ -206,7 +200,6 @@
     font-weight: bold;
   } */
 
-  /* 链接 */
   #post-content a {
     color: var(--color-primary);
     text-decoration: none;
@@ -225,7 +218,6 @@
     border-radius: 0.3rem;
   }
 
-  /* 引用 */
   blockquote {
     color: var(--color-neutral-dark);
     background-color: var(--color-bg);
