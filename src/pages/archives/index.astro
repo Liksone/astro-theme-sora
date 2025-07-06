@@ -4,7 +4,7 @@ import { getSortedCollection } from "@scripts/content-utils";
 import dayjs from "dayjs";
 import { themeConfig } from "@config";
 
-const posts = await getSortedCollection("blog");
+const posts = await getSortedCollection("blog", false);
 let groupedPosts: { [year: number]: typeof posts } = {};
 posts.forEach((post) => {
   const year = dayjs(post.data.publishDate).year();
