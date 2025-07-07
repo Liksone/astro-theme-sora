@@ -36,8 +36,17 @@ const { posts, page } = Astro.props as {
             </div>
 
             {/* 元信息 */}
-            <div class="flex items-center justify-between text-[0.8rem]">
-              <time class="text-neutral">{post.data.publishDate}</time>
+            <div class="flex flex-wrap gap-3 text-[0.8rem] text-neutral-500">
+              {post.data.updateDate && (
+                <span>
+                  <span class="icon-[fluent--wrench-16-filled] iconify-inline" />
+                  <time>{post.data.updateDate}</time>
+                </span>
+              )}
+              <span>
+                <span class="icon-[solar--pen-bold] iconify-inline" />
+                <time>{post.data.publishDate}</time>
+              </span>
             </div>
           </div>
         </a>
