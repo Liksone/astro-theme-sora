@@ -347,11 +347,11 @@
 
 @layer components {
   /* Card */
-  .card-bg {
+  /* .card-bg {
     background-color: var(--color-bg-light);
     border: 1px solid var(--color-border-light);
     border-radius: var(--radius-lg);
-  }
+  } */
   .card-shadow,
   .card-shadow-hover {
     background-color: white;

@@ -165,7 +165,7 @@ function generateTimeTips() {
       */
       }
 
-      <section class="relative mt-8 mb-10">
+      <section class="relative mt-8">
         <div id="post-content">
           <Content />
         </div>
@@ -193,8 +193,29 @@ function generateTimeTips() {
       </section>
     </article>
 
+    {/* 赞赏 */}
+    <div class="relative mt-10 mb-8">
+      <div class="flex justify-center gap-4 text-sm">
+        {
+          /* <button
+          class="card-small cursor-pointer"
+          id="upvote-button"
+          th:data-post-id="${post.metadata.name}"
+        >
+          <span class="iconify-inline icon-[flowbite--thumbs-up-solid]"
+          ></span>
+          赞
+          <span id="upvote-number" th:text="${post.stats?.upvote ?: 0}"
+          ></span>
+        </button>
+          */
+        }
+        {themeConfig.sponsor.enabled && <Sponsor />}
+      </div>
+    </div>
+
     {/* 版权许可协议 */}
-    <div class="card-bg card-lg px-6" id="license">
+    <div class="card-shadow card-lg px-6" id="license">
       <div id="license-icon"></div>
 
       <div>{post.data.title}</div>
@@ -285,27 +306,6 @@ function generateTimeTips() {
           </div>
         )
       }
-    </div>
-
-    {/* 赞赏 */}
-    <div class="relative">
-      <div class="my-8 flex justify-center gap-4 text-sm">
-        {
-          /* <button
-          class="card-small cursor-pointer"
-          id="upvote-button"
-          th:data-post-id="${post.metadata.name}"
-        >
-          <span class="iconify-inline icon-[flowbite--thumbs-up-solid]"
-          ></span>
-          赞
-          <span id="upvote-number" th:text="${post.stats?.upvote ?: 0}"
-          ></span>
-        </button>
-          */
-        }
-        {themeConfig.sponsor.enabled && <Sponsor />}
-      </div>
     </div>
 
     {
