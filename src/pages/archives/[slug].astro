@@ -65,7 +65,7 @@ function generateTimeTips() {
 	/> */
       }
 
-      <!-- 标题 -->
+      {/* 标题 */}
       <div class="text-center font-serif text-3xl font-bold">
         {post.data.title}
       </div>
@@ -74,7 +74,7 @@ function generateTimeTips() {
       <div
         class="text-neutral mt-4 flex flex-wrap justify-center gap-3 text-sm"
       >
-        <!-- 发布时间 -->
+        {/* 发布时间 */}
         <span>
           <span class="icon-[bx--calendar-alt] iconify-inline"></span>
           <time>
@@ -137,29 +137,28 @@ function generateTimeTips() {
 	*/
         }
         {
-          /*
-      浏览量
-      <span>
-      <span class="icon-[uil--chart-line] iconify-inline"></span>
-      <span>
-      {post.data.visit}
-      </span>
-      </span>
-      */
+          /* 浏览量 */
+          /* <span>
+	      <span class="icon-[uil--chart-line] iconify-inline"></span>
+	      <span>
+	      {post.data.visit}
+	      </span>
+	      </span> */
         }
       </div>
-
-      <!-- 摘要 -->
-      <!-- <div class="card abstract my-4 text-sm"> -->
-      <!--   <span> -->
-      <!--     {post.status.excerpt} -->
-      <!--   </span> -->
-      <!-- </div> -->
 
       {
         /* 
       时效性提示
       <div class="card-bg card-lg post-time-tips text-neutral my-4 text-sm">
+        /* 摘要 */
+        /* <div class="card abstract my-4 text-sm">
+        <span>
+          {post.status.excerpt}
+        </span>
+      </div> */
+      }
+
         {generateTimeTips()}
       </div>
       */
