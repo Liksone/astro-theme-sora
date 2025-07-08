@@ -15,7 +15,7 @@ const { page } = Astro.props;
         themeConfig.nav.map((item) => {
           if (item.name === page) {
             return (
-              <a class="font-bold text-black" href={item.url}>
+              <a class="text-primary font-bold" href={item.url}>
                 {item.name}
               </a>
             );
@@ -44,9 +44,10 @@ const { page } = Astro.props;
 </header>
 
 <style>
-  @reference "tailwindcss";
+  @reference "@styles/main.css";
+  /* @reference "tailwindcss"; */
 
   .hover {
-    @apply transition duration-300 hover:font-bold hover:text-black;
+    @apply hover:text-primary transition duration-300 hover:font-bold;
   }
 </style>
