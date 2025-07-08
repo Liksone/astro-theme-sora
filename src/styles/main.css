@@ -306,12 +306,6 @@
     font-weight: bold;
   }
 
-  /* 按钮 */
-
-  button.active {
-    opacity: 0.5;
-  }
-
   /*滚动条*/
 
   ::-webkit-scrollbar {
@@ -384,6 +378,25 @@
   }
   .card-lg {
     padding: 1rem;
+  }
+
+  /* Button */
+  .btn {
+    @apply transition;
+    border: 2px solid var(--color-border-light);
+    border-radius: var(--radius-lg);
+    /* box-shadow: 0 0 0.1rem 0 var(--color-shadow); */
+    cursor: pointer;
+    padding: 0.4rem 0.5rem;
+  }
+  .btn:hover {
+    background-color: var(--color-primary);
+    color: white;
+  }
+  button.active {
+    /* opacity: 0.5; */
+    background-color: var(--color-primary);
+    color: white;
   }
 }
 
