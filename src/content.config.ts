@@ -34,4 +34,11 @@ const blog = defineCollection({
     }),
 });
 
-export const collections = { blog };
+const moments = defineCollection({
+  loader: glob({
+    pattern: ["*.md", "*/*.md"],
+    base: "src/content_moments",
+  }),
+});
+
+export const collections = { blog, moments };

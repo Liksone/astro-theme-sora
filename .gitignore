@@ -28,3 +28,4 @@ pnpm-debug.log*
 src/content/
 src/config/
 public/favicon/
+src/content_moments

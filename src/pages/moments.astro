@@ -1,0 +1,120 @@
+---
+import Layout from "@layouts/Layout.astro";
+import { themeConfig } from "@config";
+import Comment from "@components/Comment.astro";
+import dayjs from "dayjs";
+import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
+import { getImportImage } from "@scripts/image-utils";
+import ContentC from "@components/ContentC.astro";
+
+let moments = await getCollection("moments");
+moments = moments.sort((a, b) => {
+  const timeA = dayjs(a.id);
+  const timeB = dayjs(b.id);
+  return timeA.isBefore(timeB) ? 1 : -1;
+});
+
+function getTime(timeStr: string) {
+  let time = dayjs(timeStr);
+
+  if (time.year() === dayjs().year()) {
+    return time.format("MM-DD");
+  } else {
+    return time.format("YYYY-MM-DD");
+  }
+}
+---
+
+<Layout title="瞬间" headerPage="瞬间">
+  <main class="mx-auto max-w-xl lg:max-w-3xl 2xl:max-w-4xl">
+    <div>
+      {
+        moments.map((moment) => (
+          <div class="card-shadow card-lg my-6">
+            <div class="flex gap-3">
+              <Image
+                src={getImportImage(themeConfig.global.avatar)}
+                class="h-9 w-auto rounded-sm"
+                alt="avatar"
+              />
+
+              <div class="flex w-full flex-col gap-1">
+                <div class="flex items-center justify-between">
+                  <div class="text-neutral text-sm">
+                    {themeConfig.site.author}
+                  </div>
+
+                  <div class="flex justify-end gap-2 text-xs text-neutral-500">
+                    <span class="flex items-center gap-1">
+                      <span class="icon-[solar--pen-bold]" />
+                      <time>{getTime(moment.id)}</time>
+                    </span>
+
+                    <button class="cursor-pointer" id="comment-button">
+                      <span class="icon-[fa6-regular--comment-dots] iconify-inline text-sm" />
+                    </button>
+                  </div>
+                </div>
+
+                <div class="content" id="post-content">
+                  <ContentC post={moment} />
+                </div>
+
+                {/*
+                <div id="comment" class="hidden">
+                  {themeConfig.comment.enabled &&
+                    themeConfig.comment.artalk.enabled && <Comment />}
+                </div>
+		*/}
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<script>
+  // function comment() {
+  //   const button = document.getElementById("comment-button");
+  //   const page = document.getElementById("comment");
+  //
+  //   button.addEventListener("click", function () {
+  //     page.classList.remove("hidden");
+  //     button.classList.add("active");
+  //
+  //     button.addEventListener("click", function () {
+  //       page.classList.add("hidden");
+  //       button.classList.remove("active");
+  //     });
+  //   });
+  // }
+  //
+  // document.addEventListener("DOMContentLoaded", () => {
+  //   comment();
+  // });
+</script>
+
+<style>
+  .content > :global(:first-child) {
+    margin-top: 0;
+  }
+  .content > :global(:last-child) {
+    margin-bottom: 0;
+  }
+  .content > :global(p) {
+    margin: 0.25rem 0;
+  }
+
+  /* .moment {
+    border-top: 1px dashed var(--color-neutral-300);
+    border-bottom: 1px dashed var(--color-neutral-300);
+    padding: 1.5rem 0 1rem;
+  }
+
+  .moment + .moment {
+    border-top: none;
+  } */
+</style>

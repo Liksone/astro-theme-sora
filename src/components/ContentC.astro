@@ -1,0 +1,8 @@
+---
+import { render } from "astro:content";
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Content />
