@@ -35,6 +35,8 @@ export default function rehypeExternalLinks() {
         "zhihu.com": "zhihu.ico",
         "post.smzdm.com": "smzdm.ico",
         "www.reddit.com": "reddit.png",
+        "www.v2ex.com": "v2ex.jpeg",
+        "bilibili.com": "bilibili.ico",
       };
       const url = new URL(node.properties.href);
       let favicon: string;
