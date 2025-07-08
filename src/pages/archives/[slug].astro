@@ -271,7 +271,7 @@ function generateTimeTips() {
               {post.data.categories &&
                 post.data.categories.map((category) => (
                   <a
-                    class="card-shadow card-sm"
+                    class="card-shadow-hover card-sm"
                     href={getCategoryUrl(category)}
                   >
                     <span class="icon-[material-symbols--folder-outline-rounded] iconify-inline" />
@@ -283,7 +283,7 @@ function generateTimeTips() {
             <span class="flex gap-2">
               {post.data.tags &&
                 post.data.tags.map((tag) => (
-                  <a class="card-shadow card-sm" href={getTagUrl(tag)}>
+                  <a class="card-shadow-hover card-sm" href={getTagUrl(tag)}>
                     <span class="icon-[mdi--tag-outline] iconify-inline" />
                     <span>{tag}</span>
                   </a>
