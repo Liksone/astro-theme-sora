@@ -5,7 +5,7 @@ import Layout from "@layouts/Layout.astro";
 import { themeConfig } from "@config";
 import dayjs from "dayjs";
 import { getCategoryUrl, getTagUrl } from "@scripts/url-utils";
-import ToTop from "@components/ToTop.astro";
+import ToTop from "@components/ToTop.tsx";
 import Sponsor from "@components/Sponsor.astro";
 import Comment from "@components/Comment.astro";
 
@@ -301,7 +301,7 @@ function generateTimeTips() {
     }
   </main>
 
-  <ToTop />
+  <ToTop client:idle />
 </Layout>
 
 <script>

@@ -31,6 +31,8 @@
       "@config": [
         "src/theme.config.ts"
       ]
-    }
+    },
+    "jsx": "preserve",
+    "jsxImportSource": "solid-js"
   }
 }
