@@ -162,7 +162,7 @@ function generateTimeTips() {
         >
           <!-- <div class="mt-[1rem]"># 目录</div> -->
           <nav
-            class="active:border-l-primary sticky top-10 pl-4 font-serif text-[0.8rem]"
+            class="active:border-l-primary sticky top-10 pl-4 font-serif text-sm"
             id="toc"
           >
             {
@@ -405,23 +405,19 @@ function generateTimeTips() {
 
   /* 目录 */
   #toc a {
-    /* color: #666; */
-    color: black;
-    opacity: 0.6;
+    color: var(--color-neutral);
     transition: all 200ms ease-in-out;
-    /* This small transition makes setting of the active state smooth */
   }
   #toc a:hover {
-    /* color: #333; */
-    opacity: 0.9;
+    color: black;
+    font-weight: 500;
   }
   #toc .active > a {
-    /* color: black; */
-    opacity: 1;
+    color: black;
+    /* color: var(--color-primary); */
     font-weight: 600;
   }
   #toc .active {
-    /* color: black; */
     border-left-color: var(--color-primary);
     border-start-end-radius: 0.5rem;
     transition: all 200ms ease-in-out;
