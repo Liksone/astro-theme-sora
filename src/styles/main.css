@@ -123,12 +123,8 @@
 
   body {
     font-family: var(--font-sans-serif);
-    /* color: #333; */
     /* background-color: #f6f7f8; */
-    /* background-color: var(--color-gray-50); */
-    /* background-color: var(--color-zinc-50); */
     /* background-color: var(--color-neutral-50); */
-    /* background-color: var(--color-stone-50); */
     /* background-color: #f9fafb; */
     /* background-image: url(/images/texture.png); */
     padding: 0 32px;
