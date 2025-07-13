@@ -8,54 +8,6 @@
   --font-sans: "HarmonyOS Sans SC", ui-sans-serif, sans-serif;
   --font-mono: "Maple Mono NF CN", ui-monospace, monospace;
 
-  /* --color-primary-50: #faf8fc;
-  --color-primary-100: #f4eff8;
-  --color-primary-200: #ece1f3;
-  --color-primary-300: #dcc9e9;
-  --color-primary-400: #c5a7d9;
-  --color-primary-500: #ae84c8;
-  --color-primary-600: #9b6cb7;
-  --color-primary-700: #82549c;
-  --color-primary-800: #6d4881;
-  --color-primary-900: #593b68;
-  --color-primary-950: #3c2249; */
-
-  /* --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #c0dbfd;
-  --color-primary-300: #94c5fc;
-  --color-primary-400: #62a5f8;
-  --color-primary-500: #4285f4;
-  --color-primary-600: #2763e9;
-  --color-primary-700: #1f4ed6;
-  --color-primary-800: #2041ad;
-  --color-primary-900: #1f3b89;
-  --color-primary-950: #182553; */
-
-  /* --color-primary-50: #f2f5fc;
-  --color-primary-100: #e1e9f8;
-  --color-primary-200: #c9d9f4;
-  --color-primary-300: #a4c1ec;
-  --color-primary-400: #7fa5e3;
-  --color-primary-500: #5980d8;
-  --color-primary-600: #4466cc;
-  --color-primary-700: #3b53ba;
-  --color-primary-800: #354598;
-  --color-primary-900: #2f3d79;
-  --color-primary-950: #21274a; */
-
-  /* --color-secondary-50: #f4f6fb;
-  --color-secondary-100: #e8ecf6;
-  --color-secondary-200: #ccd7eb;
-  --color-secondary-300: #9fb6da;
-  --color-secondary-400: #6c90c4;
-  --color-secondary-500: #4870ac;
-  --color-secondary-600: #375992;
-  --color-secondary-700: #2d4877;
-  --color-secondary-800: #293e63;
-  --color-secondary-900: #263654;
-  --color-secondary-950: #192338; */
-
   --color-primary-50: #fff0fc;
   --color-primary-100: #ffe3fc;
   --color-primary-200: #ffc7f9;
@@ -66,12 +18,9 @@
   --color-primary-700: #dc0097;
   --color-primary-800: #b5007c;
   --color-primary-900: #82045b;
-  /* --color-primary-900: rgb(130, 4, 91); */
   --color-primary-950: #5d003c;
 
   --color-primary: var(--color-primary-900);
-  /* --color-primary: hsl(318.57, 94.03%, 26.27%); */
-  /* --color-primary-soft: hsl(318.57 94.03% 26.27% / 15%); */
   --color-primary-soft: rgb(from var(--color-primary) r g b / 0.15);
 
   /* --color-neutral-50: rgb(250, 250, 250) */
@@ -92,13 +41,9 @@
   --color-neutral: var(--color-neutral-600);
   --color-neutral-dark: var(--color-neutral-700);
 
-  /* --color-text: #5f6368; */
-  /* --color-text: #383a42; */
   --color-bg-light: var(--color-neutral-50);
   --color-bg: var(--color-neutral-100);
   --color-bg-dark: var(--color-neutral-150);
-  /* darker */
-  /* --color-bg2: var(--color-neutral-200); */
   --color-shadow: var(--color-neutral-250);
   --color-border-light: var(--color-neutral-150);
 
