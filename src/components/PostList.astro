@@ -57,19 +57,23 @@ const { posts, page } = Astro.props as {
   {/* pagination */}
   {
     page && page.lastPage > 1 && (
-      <div class="mt-8 text-center">
+      <div class="mt-8 flex items-center justify-center">
         {page.url.prev && (
-          <a href={page.url.prev} rel="prev">
-            <span class="iconify-middle iconify-inline icon-[material-symbols--chevron-left-rounded]" />
-          </a>
+          <a
+            href={page.url.prev}
+            rel="prev"
+            class="iconify-middle icon-[material-symbols--chevron-left-rounded]"
+          />
         )}
         <span>
           {page.currentPage} / {page.lastPage}
         </span>
         {page.url.next && (
-          <a href={page.url.next} rel="next">
-            <span class="iconify-inline iconify-middle icon-[material-symbols--chevron-right-rounded]" />
-          </a>
+          <a
+            href={page.url.next}
+            rel="next"
+            class="icon-[material-symbols--chevron-right-rounded] iconify-middle"
+          />
         )}
       </div>
     )
