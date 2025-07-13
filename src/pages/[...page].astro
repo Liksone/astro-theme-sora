@@ -51,7 +51,9 @@ const iconMap: Record<string, string> = {
               .filter((item) => item.enabled)
               .map((item) => (
                 <a href={item.url} target="_blank" rel="noopener">
-                  <span class={`iconify-large ${iconMap[item.name]}`} />
+                  <span
+                    class={`iconify-large ${iconMap[item.name]} hover:text-primary`}
+                  />
                 </a>
               ))
           }
@@ -59,7 +61,7 @@ const iconMap: Record<string, string> = {
           {
             themeConfig.global.rss && (
               <a href="/rss.xml">
-                <span class="iconify-large icon-[heroicons--rss]" />
+                <span class="iconify-large icon-[heroicons--rss] hover:text-primary" />
               </a>
             )
           }
@@ -95,7 +97,8 @@ const iconMap: Record<string, string> = {
     padding: 0.4rem 0.5rem;
   }
   .card-invert:hover {
-    background-color: var(--color-neutral-500);
+    /* background-color: var(--color-neutral-500); */
+    background-color: var(--color-primary);
     color: white;
   }
 </style>

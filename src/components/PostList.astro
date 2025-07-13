@@ -10,7 +10,7 @@ const { posts, page } = Astro.props as {
 };
 ---
 
-<main class="mx-auto max-w-[768px]">
+<main class="mx-auto max-w-3xl">
   <div class="flex flex-col gap-6">
     {
       posts.map((post) => (
@@ -24,7 +24,7 @@ const { posts, page } = Astro.props as {
 
           <div class="post flex flex-col gap-2">
             {/* 标题 */}
-            <div class="textc-primary font-serif text-lg font-semibold">
+            <div class="font-serif text-lg font-semibold">
               {post.data.title}
             </div>
 
@@ -57,19 +57,23 @@ const { posts, page } = Astro.props as {
   {/* pagination */}
   {
     page && page.lastPage > 1 && (
-      <div class="mt-8 text-center">
+      <div class="mt-8 flex items-center justify-center">
         {page.url.prev && (
-          <a href={page.url.prev} rel="prev">
-            <span class="iconify-middle iconify-inline icon-[material-symbols--chevron-left-rounded]" />
-          </a>
+          <a
+            href={page.url.prev}
+            rel="prev"
+            class="iconify-middle icon-[material-symbols--chevron-left-rounded]"
+          />
         )}
         <span>
           {page.currentPage} / {page.lastPage}
         </span>
         {page.url.next && (
-          <a href={page.url.next} rel="next">
-            <span class="iconify-inline iconify-middle icon-[material-symbols--chevron-right-rounded]" />
-          </a>
+          <a
+            href={page.url.next}
+            rel="next"
+            class="icon-[material-symbols--chevron-right-rounded] iconify-middle"
+          />
         )}
       </div>
     )
